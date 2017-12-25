@@ -38,38 +38,9 @@ var newSrcSet = num[today].url
 //Removes main 'google logo' replaces with main
 $('#hplogo').replaceWith(
   `
-<img id='record-img'  src='https://upload.wikimedia.org/wikipedia/commons/8/88/45_rpm_record.png'/>
-<img id='album'  src='https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/NasIllmatic.jpg/220px-NasIllmatic.jpg'/>
+<div id='record-img'></div>
 `
 )
-
-let recordImg = document.getElementById('record-img')
-let out = false
-$(document).on('click', '#album', function() {
-  if (!out) {
-    recordImg.style = `
-  position: absolute;
-  margin-left: 47%;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  height:200px;
-   z-index: 1;
-   `
-    out = true
-  } else if (out) {
-    recordImg.style = `
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  height:200px;
-   z-index: 1;
-   `
-    out = false
-  }
-})
 
 //-------
 
@@ -89,7 +60,6 @@ if (addedElBelowSearch) addedElBelowSearch.remove()
 //-------
 //side panel after search
 let sidePanel = document.getElementById('rhs_block')
-// console.log(sidePanel)
 $(sidePanel).replaceWith('<p>mike</p>')
 //-------
 
@@ -140,15 +110,12 @@ $('#logocont')
 //--------
 
 $(document).on('click', '#album', function() {
-  $(document).on('trigger', '#play-button', function() {
-    console.log('here')
-  })
+  $(document).on('trigger', '#play-button', function() {})
 })
 
 // Get the element to prepend our app to from https://www.google.com.
 // This could be a specific element on a website or something more general like `document.body`.
 const viewport2 = document.getElementById('record-img')
-console.log('views2', viewport2)
 
 // Create a div to render the App component to.
 const app2 = document.createElement('div')
@@ -168,7 +135,6 @@ ReactDOM.render(<App />, document.getElementById('root'))
 // Get the element to prepend our app to from https://www.google.com.
 // This could be a specific element on a website or something more general like `document.body`.
 const viewport = document.getElementById('record-img')
-console.log('views', viewport)
 
 // Create a div to render the App component to.
 const app = document.createElement('div')
@@ -182,9 +148,7 @@ app.id = 'root2'
 // You could also use `appendChild` depending on your needs.
 
 if (viewport) {
-  console.log('here')
   viewport.appendChild(app)
 }
 // Render the App
 ReactDOM.render(<App2 />, document.getElementById('root2'))
-console.log(document.getElementById('root2'))
