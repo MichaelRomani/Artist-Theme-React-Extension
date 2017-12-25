@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "90s Hip Hop Theme",
+  "version": "0.1",
+  "description": "90s Hip Hop Theme",
+  "content_scripts": [
+    {
+      "matches": ["https://www.google.com/", "https://www.google.com/*"],
+      "css": ["/user/css/main.css"],
+      "js": ["/user/js/main.js", "app.js"]
+    }
+  ]
+}
