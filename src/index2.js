@@ -19,5 +19,5 @@ app.id = 'root2'
 // You could also use `appendChild` depending on your needs.
 if (viewport) viewport.append(app)
 
-// Render the App.
+// Render the App
 ReactDOM.render(<App2 />, document.getElementById('root2'))
