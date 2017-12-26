@@ -12,7 +12,7 @@ class App extends Component {
 
   showHideRecord() {
     this.setState({ showRecord: !this.state.showRecord })
-    console.log('hitting')
+    console.log(this.state.showRecord)
   }
   render() {
     return (
@@ -22,7 +22,7 @@ class App extends Component {
           id="record-img"
           style={{
             position: 'absolute',
-            marginLeft: `${this.showRecord ? '47%' : 'auto'}`,
+            marginLeft: `${this.state.showRecord ? '47%' : 'auto'}`,
             marginRight: 'auto',
             left: 0,
             right: 0,
