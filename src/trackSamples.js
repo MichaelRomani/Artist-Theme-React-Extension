@@ -31,10 +31,8 @@ class TrackSamples extends Component {
       }
     }
     if (event.key === ']') {
-      if (this.state.playing === true) {
-        this.audio.stop()
-        this.audio.seek(2.96)
-      } else {
+      if (this.state.playing === true) this.audio.seek(2.96)
+      else {
         this.setState({
           playing: true
         })
