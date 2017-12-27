@@ -19,7 +19,6 @@ class TrackSamples extends Component {
   }
 
   handleAKey(event) {
-    console.log(event)
     if (event.key === '[') {
       if (this.state.playing === true) {
         this.audio.stop()

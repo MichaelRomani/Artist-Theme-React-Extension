@@ -7,42 +7,41 @@ import TrackDrums from './trackDrums'
 class App extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      player: false
+    }
+    this.value = 0
+    this.handleAKey = this.handleAKey.bind(this)
+  }
+
+  componentDidMount() {
+    window.addEventListener('keypress', this.handleAKey, false)
+  }
+
+  handleAKey(event) {
+    console.log(event)
+    if (event.key === ' ') this.value++
+    console.log(this.value)
+    if (this.value >= 5) this.setState({ player: true })
   }
 
   render() {
     return (
       <div className="App">
-        <TrackSamples />
-        <TrackDrums />
-        <img
-          alt="nas-record"
-          id="record-img"
-          style={{
-            position: 'absolute',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            left: 0,
-            right: 0,
-            height: '200px',
-            zIndex: 1
-          }}
-          src="https://upload.wikimedia.org/wikipedia/commons/8/88/45_rpm_record.png"
-        />
-        <img
-          onClick={this.showHideRecord}
-          alt="nas-record"
-          id="album"
-          style={{
-            position: 'absolute',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            left: 0,
-            right: 0,
-            height: '200px',
-            zIndex: 3
-          }}
-          src="https://images.complex.com/complex/image/upload/c_limit,w_680/fl_lossy,pg_1,q_auto/i2yrqdiqinpelgvyn8cj.jpg"
-        />
+        {this.state.player ? (
+          <div>
+            <TrackSamples />
+            <TrackDrums />
+            <h1>ROMANI</h1>
+            <h3>'+' plays background beat</h3>
+            <h3>'-' stops background beat</h3>
+            <h3>'[' plays sample 1</h3>
+            <h3>']' plays sample 2</h3>
+          </div>
+        ) : (
+          ''
+        )}
+        <h3>Hit Spacebar 5 X to initialize Player</h3>
       </div>
     )
   }
