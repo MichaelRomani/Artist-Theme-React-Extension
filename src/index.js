@@ -9,7 +9,7 @@ import $ from 'jquery'
 // var $ = jQuery
 
 var num = {
-  '12/25': {
+  '12/27': {
     url:
       'http://www.artefactmagazine.com/wp-content/uploads/2014/10/Nas-Illmatic.jpg',
     data:
@@ -17,23 +17,23 @@ var num = {
   }
 }
 
-var today = new Date()
-var dd = today.getDate()
-var mm = today.getMonth() + 1 //January is 0!
-var yyyy = today.getFullYear()
+// var today = new Date()
+// var dd = today.getDate()
+// var mm = today.getMonth() + 1 //January is 0!
+// var yyyy = today.getFullYear()
 
-if (dd < 10) {
-  dd = '0' + dd
-}
+// if (dd < 10) {
+//   dd = '0' + dd
+// }
 
-if (mm < 10) {
-  mm = '0' + mm
-}
+// if (mm < 10) {
+//   mm = '0' + mm
+// }
 
-today = mm + '/' + dd
+// today = mm + '/' + dd
 
-var newSrc = num[today].url
-var newSrcSet = num[today].url
+// var newSrc = num[today].url
+// var newSrcSet = num[today].url
 
 //Removes main 'google logo' replaces with main
 $('#hplogo').replaceWith(

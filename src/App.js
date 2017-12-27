@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
+import ReactHowler from 'react-howler'
 
 class App extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <ReactHowler src="./dipquant.mp3" playing={true} />
         <img
           alt="nas-record"
           id="record-img"
