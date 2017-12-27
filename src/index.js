@@ -11,7 +11,7 @@ import $ from 'jquery'
 var num = {
   '12/27': {
     url:
-      'http://www.artefactmagazine.com/wp-content/uploads/2014/10/Nas-Illmatic.jpg',
+      'https://images.complex.com/complex/image/upload/c_limit,w_680/fl_lossy,pg_1,q_auto/i2yrqdiqinpelgvyn8cj.jpg',
     data:
       'DMX released his second album Flesh Of My Flesh Blood Of My Blood December 22, 1998'
   }
