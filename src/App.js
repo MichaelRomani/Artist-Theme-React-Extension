@@ -8,7 +8,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      player: false
+      player: false,
+      password: ''
     }
     this.value = 0
     this.handleAKey = this.handleAKey.bind(this)
@@ -19,10 +20,9 @@ class App extends Component {
   }
 
   handleAKey(event) {
-    console.log(event)
-    if (event.key === ' ') this.value++
-    console.log(this.value)
-    if (this.value >= 5) this.setState({ player: true })
+    this.setState({ password: this.state.password.concat(event.key) })
+    if (this.state.password.indexOf('dipsetdipsetdipset') > -1)
+      this.setState({ player: true })
   }
 
   render() {
@@ -32,16 +32,10 @@ class App extends Component {
           <div>
             <TrackSamples />
             <TrackDrums />
-            <h1>ROMANI</h1>
-            <h3>'+' plays background beat</h3>
-            <h3>'-' stops background beat</h3>
-            <h3>'[' plays sample 1</h3>
-            <h3>']' plays sample 2</h3>
           </div>
         ) : (
           ''
         )}
-        <h3>Hit Spacebar 5 X to initialize Player</h3>
       </div>
     )
   }

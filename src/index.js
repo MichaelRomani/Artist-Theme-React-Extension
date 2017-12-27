@@ -8,14 +8,14 @@ import $ from 'jquery'
 
 // var $ = jQuery
 
-var num = {
-  '12/27': {
-    url:
-      'https://images.complex.com/complex/image/upload/c_limit,w_680/fl_lossy,pg_1,q_auto/i2yrqdiqinpelgvyn8cj.jpg',
-    data:
-      'DMX released his second album Flesh Of My Flesh Blood Of My Blood December 22, 1998'
-  }
-}
+// var num = {
+//   '12/27': {
+//     url:
+//       'https://images.complex.com/complex/image/upload/c_limit,w_680/fl_lossy,pg_1,q_auto/i2yrqdiqinpelgvyn8cj.jpg',
+//     data:
+//       'DMX released his second album Flesh Of My Flesh Blood Of My Blood December 22, 1998'
+//   }
+// }
 
 // var today = new Date()
 // var dd = today.getDate()

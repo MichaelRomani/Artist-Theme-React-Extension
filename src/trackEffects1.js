@@ -2,35 +2,33 @@
 import React, { Component } from 'react'
 import './App.css'
 import ReactHowler from 'react-howler'
-import audio from './audio/audio'
+import audioEffects from './audio/audioEffects'
 
-class TrackSamples extends Component {
+class TrackEffects1 extends Component {
   constructor(props) {
     super(props)
     this.state = {
       showRecord: false,
       playing: false
     }
-    this.handleAKeyPress = this.handleAKeyPress.bind(this)
+    this.handleAKeyEff1 = this.handleAKeyEff1.bind(this)
   }
 
   componentDidMount() {
-    window.addEventListener('keypress', this.handleAKeyPress, false)
+    window.addEventListener('keypress', this.handleAKeyEff1, false)
   }
 
-  handleAKeyPress(event) {
-    console.log(event)
-    if (event.key === '=') {
+  handleAKeyEff1(event) {
+    if (event.key === ';') {
       if (this.state.playing === true) {
-        this.audioDrums.stop()
-        this.audioDrums.play()
+        this.audioEffects1.stop()
+        this.audioEffects1.play()
       } else {
         this.setState({
           playing: true
         })
       }
     }
-    if (event.key === '-') this.audioDrums.stop()
   }
 
   render() {
@@ -38,11 +36,11 @@ class TrackSamples extends Component {
       <div>
         <ReactHowler
           playing={this.state.playing}
-          ref={ref => (this.audioDrums = ref)}
-          src={audio.two}
+          ref={ref => (this.audioEffects1 = ref)}
+          src={audioEffects.one}
         />
       </div>
     )
   }
 }
-export default TrackSamples
+export default TrackEffects1

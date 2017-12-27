@@ -37,6 +37,14 @@ class TrackSamples extends Component {
         })
       }
     }
+    if (event.key === 'p') {
+      if (this.state.playing === true) this.audio.stop()
+      else {
+        this.setState({
+          playing: true
+        })
+      }
+    }
   }
 
   render() {
