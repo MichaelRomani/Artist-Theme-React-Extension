@@ -21,16 +21,20 @@ class TrackSamples extends Component {
   handleAKey(event) {
     console.log(event)
     if (event.key === '[') {
-      if (this.state.playing === true) this.audio.seek(0)
-      else {
+      if (this.state.playing === true) {
+        this.audio.stop()
+        this.audio.play()
+      } else {
         this.setState({
           playing: true
         })
       }
     }
     if (event.key === ']') {
-      if (this.state.playing === true) this.audio.seek(2.96)
-      else {
+      if (this.state.playing === true) {
+        this.audio.stop()
+        this.audio.seek(2.96)
+      } else {
         this.setState({
           playing: true
         })
@@ -39,15 +43,12 @@ class TrackSamples extends Component {
   }
 
   render() {
-    let something = chrome.extension.getURL('./dipquant.mp3')
-    console.log(something)
     return (
       <div>
         <ReactHowler
           playing={this.state.playing}
           ref={ref => (this.audio = ref)}
           src={audio.one}
-          onStop={this.setState({ playing: false })}
         />
       </div>
     )
