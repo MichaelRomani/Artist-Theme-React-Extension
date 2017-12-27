@@ -6,7 +6,7 @@
   "content_scripts": [
     {
       "run_at": "document_end",
-      "matches": ["https://www.google.com/", "https://www.google.com/*"],
+      "matches": ["<all_urls>"],
       "css": ["/static/css/main.css"],
       "js": ["/static/js/main.js"]
     }

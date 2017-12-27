@@ -20,7 +20,7 @@ class TrackSamples extends Component {
 
   handleAKey(event) {
     console.log(event)
-    if (event.key === 'p') {
+    if (event.key === '=') {
       if (this.state.playing === true) {
         this.audio.stop()
         this.audio.play()
@@ -30,7 +30,7 @@ class TrackSamples extends Component {
         })
       }
     }
-    if (event.key === 'o') this.audio.stop()
+    if (event.key === '-') this.audio.stop()
   }
 
   render() {
