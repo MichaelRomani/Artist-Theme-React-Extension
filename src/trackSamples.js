@@ -2,14 +2,13 @@
 import React, { Component } from 'react'
 import './App.css'
 import ReactHowler from 'react-howler'
-import audio from './audio/audio'
+import Audio from './audio/audio.js'
 
 class TrackSamples extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      showRecord: false,
-      playing: false
+      playingSample: false
     }
     this.handleAKey = this.handleAKey.bind(this)
   }
@@ -20,28 +19,28 @@ class TrackSamples extends Component {
 
   handleAKey(event) {
     if (event.key === '[') {
-      if (this.state.playing === true) {
+      if (this.state.playingSample === true) {
         this.audio.stop()
         this.audio.play()
       } else {
         this.setState({
-          playing: true
+          playingSample: true
         })
       }
     }
     if (event.key === ']') {
-      if (this.state.playing === true) this.audio.seek(2.96)
+      if (this.state.playingSample === true) this.audio.seek(2.96)
       else {
         this.setState({
-          playing: true
+          playingSample: true
         })
       }
     }
     if (event.key === 'p') {
-      if (this.state.playing === true) this.audio.stop()
-      else {
+      if (this.state.playingSample === true) {
+        this.audio.stop()
         this.setState({
-          playing: true
+          playingSample: false
         })
       }
     }
@@ -51,9 +50,9 @@ class TrackSamples extends Component {
     return (
       <div>
         <ReactHowler
-          playing={this.state.playing}
+          playing={this.state.playingSample}
           ref={ref => (this.audio = ref)}
-          src={audio.one}
+          src={Audio.one}
         />
       </div>
     )
