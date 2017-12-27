@@ -30,6 +30,7 @@ class TrackSamples extends Component {
         })
       }
     }
+    if (event.key === 'o') this.audio.stop()
   }
 
   render() {
