@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
       player: false,
       password: '',
-      buttonAlt: 0
+      change: true
     }
     this.value = 0
     this.handleAKey = this.handleAKey.bind(this)
@@ -57,7 +57,7 @@ class App extends Component {
     return (
       <div className="App">
         {this.state.player ? (
-          <div>
+          <div id={this.state.change}>
             <TrackSamples />
             <TrackDrums />
           </div>
