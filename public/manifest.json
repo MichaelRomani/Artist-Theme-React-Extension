@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "React Content Script",
+  "name": "Chrome Beats",
   "version": "0.1",
-  "description": "React Content Script",
+  "description": "Chrome Beats",
   "content_scripts": [
     {
       "run_at": "document_end",

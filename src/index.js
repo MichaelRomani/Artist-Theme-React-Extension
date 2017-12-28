@@ -36,7 +36,7 @@ import $ from 'jquery'
 // var newSrcSet = num[today].url
 
 //Removes main 'google logo' replaces with main
-$('div').append(
+$('body').append(
   `
 <div id='record-img'></div>
 `
