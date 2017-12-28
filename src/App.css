@@ -36,7 +36,7 @@
   color: rgba(255, 255, 255, 0.4);
   user-select: none;
 }
-.box:hover:active {
+.box {
   width: 100px;
   height: 100px;
   margin: 10px 0;
@@ -55,7 +55,7 @@
   height: 100px;
   margin: 10px 0;
   box-shadow: 0 8px 6px -6px black;
-  background-color: rgb(220, 95, 95);
+  background-color: rgb(176, 52, 52);
   display: flex;
   justify-content: center;
   align-items: center;
