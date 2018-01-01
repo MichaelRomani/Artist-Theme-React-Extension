@@ -9,7 +9,7 @@ $('body').append(
 `
 )
 
-window.addEventListener('keypress', this.handleAKey, false)
+window.addEventListener('keypress', takeOverDom, false)
 
 //keydown - up
 $(window).keydown(function(e) {
@@ -18,20 +18,20 @@ $(window).keydown(function(e) {
   $("div[data-code='" + code + "']").addClass('active')
   console.log(code)
 
-$(window).keyup(function(e) {
-  let code = e.keyCode
-  $("div[data-code='" + code + "']").removeClass('active')
+  $(window).keyup(function(e) {
+    let code = e.keyCode
+    $("div[data-code='" + code + "']").removeClass('active')
+  })
 })
 
+const takeOverDom = () => {
+  if (this.state.password.indexOf('dipsetdipsetdipset') > -1) {
+    this.setState({ password: '' })
 
-
-if (this.state.password.indexOf('dipsetdipsetdipset') > -1)
-  this.setState({ password: '' })
-
-  $('body').replaceWith(`
-  <body >
-  <div id=main-div>
-  <div>
+    $('body').replaceWith(`
+    <body >
+      <div id=main-div>
+        <div>
           <h1>DRUM PAD</h1>
           <div class="box pad-2"
                 data-code="82"
@@ -60,23 +60,12 @@ if (this.state.password.indexOf('dipsetdipsetdipset') > -1)
           <div class="box pad-8" data-code="74">
               K
           </div>
-    </div>
-  </div>
-  </body>
-`)
+        </div>
+      </div>
+    </body>
+    `)
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import $ from 'jquery'
 
