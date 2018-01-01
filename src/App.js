@@ -10,63 +10,39 @@ import Tester from './tester'
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      player: false,
-      password: '',
-      change: true,
-      counter: 0
-    }
-    this.value = 0
-    this.handleAKey = this.handleAKey.bind(this)
-  }
-
-  componentDidMount() {
-    window.addEventListener('keypress', this.handleAKey, false)
-  }
-
-  handleAKey(event) {
-
-      const viewport2 = document.getElementById('main-div')
-      const app2 = document.createElement('div')
-      app2.id = 'root'
-      if (viewport2) viewport2.appendChild(app2)
-      // Render the App.
-      ReactDOM.render(<Tester />, document.getElementById('root'))
-      this.setState({ player: true })
-    }
   }
 
   render() {
-    return <div />
+    return <Tester />
   }
 }
 
 export default App
 
-// let recordImg = document.getElementById('record-img')
-// let out = false
-// $(document).on('click', '#album', function() {
-//   if (!out) {
-//     recordImg.style = `
-//   position: absolute;
-//   margin-left: 47%;
-//   margin-right: auto;
-//   left: 0;
-//   right: 0;
-//   height:200px;
-//    z-index: 1;
-//    `
-//     out = true
-//   } else if (out) {
-//     recordImg.style = `
-//   position: absolute;
-//   margin-left: auto;
-//   margin-right: auto;
-//   left: 0;
-//   right: 0;
-//   height:200px;
-//    z-index: 1;
-//    `
-//     out = false
-//   }
-// })
+// // let recordImg = document.getElementById('record-img')
+// // let out = false
+// // $(document).on('click', '#album', function() {
+// //   if (!out) {
+// //     recordImg.style = `
+// //   position: absolute;
+// //   margin-left: 47%;
+// //   margin-right: auto;
+// //   left: 0;
+// //   right: 0;
+// //   height:200px;
+// //    z-index: 1;
+// //    `
+// //     out = true
+// //   } else if (out) {
+// //     recordImg.style = `
+// //   position: absolute;
+// //   margin-left: auto;
+// //   margin-right: auto;
+// //   left: 0;
+// //   right: 0;
+// //   height:200px;
+// //    z-index: 1;
+// //    `
+// //     out = false
+// //   }
+// // })

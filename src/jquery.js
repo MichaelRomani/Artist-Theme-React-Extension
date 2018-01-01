@@ -9,14 +9,11 @@ $('body').append(
 `
 )
 
-window.addEventListener('keypress', takeOverDom, false)
-
 //keydown - up
 $(window).keydown(function(e) {
   let code = e.keyCode
   let kc = String.fromCharCode(e.keyCode)
   $("div[data-code='" + code + "']").addClass('active')
-  console.log(code)
 
   $(window).keyup(function(e) {
     let code = e.keyCode
@@ -24,7 +21,8 @@ $(window).keydown(function(e) {
   })
 })
 
-const takeOverDom = () => {
+const takeOverDom = event => {
+  console.log(event.key)
   if (this.state.password.indexOf('dipsetdipsetdipset') > -1) {
     this.setState({ password: '' })
 
@@ -66,6 +64,8 @@ const takeOverDom = () => {
     `)
   }
 }
+
+window.addEventListener('keypress', takeOverDom, false)
 
 // import $ from 'jquery'
 
