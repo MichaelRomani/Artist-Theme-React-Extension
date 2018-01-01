@@ -25,16 +25,7 @@ class App extends Component {
   }
 
   handleAKey(event) {
-    this.setState({ password: this.state.password.concat(event.key) })
-    if (this.state.password.indexOf('dipsetdipsetdipset') > -1) {
-      this.setState({ password: '' })
 
-      $('body').replaceWith(`
-      <body >
-      <div id=main-div>
-      </div>
-      </body>
-    `)
       const viewport2 = document.getElementById('main-div')
       const app2 = document.createElement('div')
       app2.id = 'root'

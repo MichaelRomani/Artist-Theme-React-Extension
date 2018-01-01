@@ -36,11 +36,11 @@ import $ from 'jquery'
 // var newSrcSet = num[today].url
 
 //Removes main 'google logo' replaces with main
-$('body').append(
-  `
-<div id='record-img'></div>
-`
-)
+// $('body').append(
+//   `
+// <div id='record-img'></div>
+// `
+// )
 
 // Get the element to prepend our app to from https://www.google.com.
 // This could be a specific element on a website or something more general like `document.body`.

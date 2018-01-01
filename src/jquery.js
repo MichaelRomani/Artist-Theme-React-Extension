@@ -1,3 +1,83 @@
+/*global chrome*/
+
+import $ from 'jquery'
+import './styles.scss'
+
+$('body').append(
+  `
+<div id='record-img'></div>
+`
+)
+
+window.addEventListener('keypress', this.handleAKey, false)
+
+//keydown - up
+$(window).keydown(function(e) {
+  let code = e.keyCode
+  let kc = String.fromCharCode(e.keyCode)
+  $("div[data-code='" + code + "']").addClass('active')
+  console.log(code)
+
+$(window).keyup(function(e) {
+  let code = e.keyCode
+  $("div[data-code='" + code + "']").removeClass('active')
+})
+
+
+
+if (this.state.password.indexOf('dipsetdipsetdipset') > -1)
+  this.setState({ password: '' })
+
+  $('body').replaceWith(`
+  <body >
+  <div id=main-div>
+  <div>
+          <h1>DRUM PAD</h1>
+          <div class="box pad-2"
+                data-code="82"
+              >
+                A
+          </div>
+
+          <div class="box pad-2" data-code="84">
+              S
+          </div>
+          <div class="box pad-3" data-code="89">
+              D
+          </div>
+          <div class="box pad-4" data-code="85">
+              F
+          </div>
+          <div class="box pad-5" data-code="70">
+              G
+          </div>
+          <div class="box pad-6" data-code="71">
+              H
+          </div>
+          <div class="box pad-7" data-code="72">
+              J
+          </div>
+          <div class="box pad-8" data-code="74">
+              K
+          </div>
+    </div>
+  </div>
+  </body>
+`)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import $ from 'jquery'
 
 // // var $ = jQuery
@@ -31,7 +111,7 @@
 
 // //---------
 // //Search bar, finds it, hids it, etc...
-// // let searchBarz = document.getElementsByClassName('sfibbbc')[0]
+// // let searchBarz = document.getElementsByclass('sfibbbc')[0]
 // // console.log(searchBarz)
 // // let searchBar = document.getElementById('searchform')
 // // console.log(searchBar)
