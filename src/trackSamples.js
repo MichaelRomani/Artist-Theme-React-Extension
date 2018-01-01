@@ -18,7 +18,7 @@ class TrackSamples extends Component {
   }
 
   handleAKey(event) {
-    if (event.key === '[') {
+    if (event.key === 'a') {
       if (this.state.playingSample === true) {
         this.audio.stop()
         this.audio.play()
@@ -28,7 +28,7 @@ class TrackSamples extends Component {
         })
       }
     }
-    if (event.key === ']') {
+    if (event.key === 's') {
       if (this.state.playingSample === true) this.audio.seek(2.96)
       else {
         this.setState({
