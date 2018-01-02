@@ -27,8 +27,10 @@ class App extends Component {
 
   handleKeyPress(event) {
     let tempArr = eval(`this.state.${event.key}Key`)
-    tempArr = tempArr.concat(' active')
-    eval(`this.setState({ ${event.key}Key: tempArr })`)
+    if (tempArr.length <= 3) {
+      tempArr = tempArr.concat(' active')
+      eval(`this.setState({ ${event.key}Key: tempArr })`)
+    }
   }
 
   handleKeyUp(event) {
