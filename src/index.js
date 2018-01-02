@@ -15,13 +15,16 @@ import $ from 'jquery'
 //       </div>
 //       </body>
 //     `)
+//.jsb - this is section w buttons
 
-$('.jsb').replaceWith(`
+$('#hplogo').after(`
 <body >
-<div style="width: 1000px; align-content: center; justify-content: center;" id=main-div>
+<div style="width: 1000px;" id=main-div>
 </div>
 </body>
 `)
+
+$('.jsb').remove()
 
 const viewport = document.getElementById('main-div')
 const app = document.createElement('div')

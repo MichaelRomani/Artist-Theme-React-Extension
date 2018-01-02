@@ -16,6 +16,7 @@
 }
 
 .pad {
+  margin-top: 100px;
   width: 800px;
   display: flex;
   justify-content: space-between;
@@ -23,8 +24,8 @@
 }
 
 .box {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   margin: 10px 0;
   display: flex;
   justify-content: center;

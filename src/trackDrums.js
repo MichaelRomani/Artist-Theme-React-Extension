@@ -1,4 +1,3 @@
-/*global chrome*/
 import React, { Component } from 'react'
 import './App.css'
 import ReactHowler from 'react-howler'
@@ -11,37 +10,10 @@ class TrackSamples extends Component {
       playingDrums: false
     }
     this.didMount = false
-    this.handleAKeyPress = this.handleAKeyPress.bind(this)
   }
 
   componentDidMount() {
-    window.addEventListener('keypress', this.handleAKeyPress, false)
     this.didMount = true
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('keypress', this.handleAKeyPress, false)
-  }
-
-  handleAKeyPress(event) {
-    if (event.key === '=') {
-      if (this.state.playingDrums === true) {
-        this.audioDrums.stop()
-        this.audioDrums.play()
-      } else {
-        this.setState({
-          playingDrums: true
-        })
-      }
-    }
-    if (event.key === '-') {
-      if (this.state.playingDrums === true) {
-        this.audioDrums.stop()
-        this.setState({
-          playingDrums: false
-        })
-      }
-    }
   }
 
   render() {
