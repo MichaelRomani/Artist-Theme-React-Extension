@@ -29,13 +29,46 @@ class TrackSamples extends Component {
       }
     }
     if (event.key === 's') {
-      if (this.state.playingSample === true) this.audio.seek(2.96)
+      if (this.state.playingSample === true) this.audio.seek(0.7142)
       else {
         this.setState({
           playingSample: true
         })
       }
     }
+    if (event.key === 'd') {
+      if (this.state.playingSample === true) this.audio.seek(1.43)
+      else {
+        this.setState({
+          playingSample: true
+        })
+      }
+    }
+    if (event.key === 'f') {
+      if (this.state.playingSample === true) this.audio.seek(2.14)
+      else {
+        this.setState({
+          playingSample: true
+        })
+      }
+    }
+    if (event.key === 'g') {
+      if (this.state.playingSample === true) this.audio.seek(2.86)
+      else {
+        this.setState({
+          playingSample: true
+        })
+      }
+    }
+
+    // if (event.key === 's') {
+    //   if (this.state.playingSample === true) this.audio.seek(2.96)
+    //   else {
+    //     this.setState({
+    //       playingSample: true
+    //     })
+    //   }
+    // }
     if (event.key === 'p') {
       if (this.state.playingSample === true) {
         this.audio.stop()
