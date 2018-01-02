@@ -9,13 +9,13 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      aKey: false,
-      sKey: false,
-      dKey: false,
-      fKey: false,
-      gKey: false,
-      hKey: false,
-      jKeya: false
+      aKey: 'box',
+      sKey: 'box',
+      dKey: 'box',
+      fKey: 'box',
+      gKey: 'box',
+      hKey: 'box',
+      jKey: 'box'
     }
     this.handleKeyPress = this.handleKeyPress.bind(this)
     this.handleKeyUp = this.handleKeyUp.bind(this)
@@ -26,58 +26,30 @@ class App extends Component {
   }
 
   handleKeyPress(event) {
-    eval(`this.setState({ ${event.key}Key: true })`)
+    let tempArr = eval(`this.state.${event.key}Key`)
+    tempArr = tempArr.concat(' active')
+    eval(`this.setState({ ${event.key}Key: tempArr })`)
   }
 
   handleKeyUp(event) {
-    eval(`this.setState({ ${event.key}Key: false })`)
+    let tempArr = eval(`this.state.${event.key}Key`)
+    tempArr = tempArr.slice(0, 3)
+    eval(`this.setState({ ${event.key}Key: tempArr })`)
   }
 
   render() {
-    let thisHolder = this
     return (
       <div className="a">
         <div>
           <h1>DRUM PAD</h1>
-          <div className="pad">
-            {['A', 'S', 'D', 'F', 'G', 'H', 'J'].map(keyLetter => {
-              let keyStateBool = eval(
-                `${thisHolder}.state.${keyLetter.toLowerCase()}Key`
-              )
-              return (
-                <div
-                  key={keyLetter}
-                  className={keyStateBool ? 'box active' : 'box'}
-                >
-                  {keyLetter}
-                </div>
-              )
-            })}
-
-            {/* <div style={this.state.aKey ? style1 : style2} data-code="82">
-              A
-            </div>
-            <div className="box pad-2" data-code="84">
-              S
-            </div>
-            <div className="box pad-3" data-code="89">
-              D
-            </div>
-            <div className="box pad-4" data-code="85">
-              F
-            </div>
-            <div className="box pad-5" data-code="70">
-              G
-            </div>
-            <div className="box pad-6" data-code="71">
-              H
-            </div>
-            <div className="box pad-7" data-code="72">
-              J
-            </div>
-            <div className="box pad-8" data-code="74">
-              K
-            </div> */}
+          <div>
+            <div className={this.state.aKey}>'A'</div>
+            <div className={this.state.sKey}>'S'</div>
+            <div className={this.state.dKey}>'D'</div>
+            <div className={this.state.fKey}>'F'</div>
+            <div className={this.state.gKey}>'G'</div>
+            <div className={this.state.hKey}>'H'</div>
+            <div className={this.state.jKey}>'J'</div>
           </div>
           <div>
             <TrackSamples />
