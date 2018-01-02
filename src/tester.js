@@ -9,7 +9,13 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      aKey: false
+      aKey: false,
+      sKey: false,
+      dKey: false,
+      fKey: false,
+      gKey: false,
+      hKey: false,
+      jKeya: false
     }
     this.handleKeyPress = this.handleKeyPress.bind(this)
     this.handleKeyUp = this.handleKeyUp.bind(this)
@@ -20,63 +26,62 @@ class App extends Component {
   }
 
   handleKeyPress(event) {
-    if (event.key === event.key && this.state.aKey === false) {
-      eval(`this.setState({ ${event.key}Key: true })`)
-      console.log('here1', this.state.aKey)
-    }
+    eval(`this.setState({ ${event.key}Key: true })`)
   }
 
   handleKeyUp(event) {
-    if (event.key === 'a' && this.state.aKey === true) {
-      this.setState({ aKey: false })
-    }
+    eval(`this.setState({ ${event.key}Key: false })`)
   }
 
   render() {
+    const style1 = {
+      width: '100px',
+      height: '100px',
+      margin: '10px 0',
+      boxShadow: '0 8px 6px -6px black',
+      backgroundColor: 'orange',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      fontSize: '20px',
+      color: 'white',
+      userSelect: 'none'
+    }
+    const style2 = {
+      width: '100px',
+      height: '100px',
+      margin: '10px 0',
+      boxShadow: '0 8px 6px -6px black',
+      backgroundColor: 'green',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      fontSize: '29px',
+      color: 'black',
+      userSelect: 'none'
+    }
     return (
       <div className="a">
         <div>
           <h1>DRUM PAD</h1>
           <div className="pad">
-            {this.state.aKey ? (
-              <div
-                style={{
-                  width: '100px',
-                  height: '100px',
-                  margin: '10px 0',
-                  boxShadow: '0 8px 6px -6px black',
-                  backgroundColor: 'orange',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  fontSize: '20px',
-                  color: 'white',
-                  userSelect: 'none'
-                }}
-                data-code="82"
-              >
-                A
-              </div>
-            ) : (
-              <div
-                style={{
-                  width: '100px',
-                  height: '100px',
-                  margin: '10px 0',
-                  boxShadow: '0 8px 6px -6px black',
-                  backgroundColor: 'green',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  fontSize: '29px',
-                  color: 'black',
-                  userSelect: 'none'
-                }}
-                data-code="82"
-              >
-                A
-              </div>
-            )}
+            {['A', 'S', 'D', 'F', 'G', 'H', 'J'].map(keyLetter => {
+              let stateLetterBoolen = eval(
+                `this.state.${keyLetter.toLowerCase()}Key`
+              )
+              return (
+                <div
+                  key={keyLetter}
+                  style={stateLetterBoolen ? style1 : style2}
+                >
+                  {keyLetter}
+                </div>
+              )
+            })}
+
+            {/* <div style={this.state.aKey ? style1 : style2} data-code="82">
+              A
+            </div>
             <div className="box pad-2" data-code="84">
               S
             </div>
@@ -97,7 +102,7 @@ class App extends Component {
             </div>
             <div className="box pad-8" data-code="74">
               K
-            </div>
+            </div> */}
           </div>
           <div>
             <TrackSamples />

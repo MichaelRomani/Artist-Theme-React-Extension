@@ -39,7 +39,6 @@ class App extends Component {
       const app2 = document.createElement('div')
       app2.id = 'root'
       if (viewport2) viewport2.appendChild(app2)
-      // Render the App.
       ReactDOM.render(<Tester />, document.getElementById('root'))
       this.setState({ player: true })
     }
