@@ -36,6 +36,7 @@ class TrackSamples extends Component {
         this.setState({
           playingSample: true
         })
+        this.audio.seek(audioStartPoint)
       }
     }
     if (event.key === 'd') {
@@ -45,6 +46,7 @@ class TrackSamples extends Component {
         this.setState({
           playingSample: true
         })
+        this.audio.seek(audioStartPoint)
       }
     }
     if (event.key === 'f') {
@@ -54,6 +56,7 @@ class TrackSamples extends Component {
         this.setState({
           playingSample: true
         })
+        this.audio.seek(audioStartPoint)
       }
     }
     if (event.key === 'g') {
@@ -63,6 +66,7 @@ class TrackSamples extends Component {
         this.setState({
           playingSample: true
         })
+        this.audio.seek(audioStartPoint)
       }
     }
     if (event.key === 'h') {
@@ -72,6 +76,7 @@ class TrackSamples extends Component {
         this.setState({
           playingSample: true
         })
+        this.audio.seek(audioStartPoint)
       }
     }
     if (event.key === 'j') {
@@ -81,6 +86,7 @@ class TrackSamples extends Component {
         this.setState({
           playingSample: true
         })
+        this.audio.seek(audioStartPoint)
       }
     }
 
@@ -93,7 +99,6 @@ class TrackSamples extends Component {
       }
     }
     if (event.key === 'l') {
-      this.audioTwo.play()
       this.setState({
         playingSampleTwo: true
       })
