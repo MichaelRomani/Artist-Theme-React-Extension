@@ -9,13 +9,13 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      aKey: 'box',
-      sKey: 'box',
-      dKey: 'box',
-      fKey: 'box',
-      gKey: 'box',
-      hKey: 'box',
-      jKey: 'box'
+      aKey: 'box pad-1',
+      sKey: 'box pad-2',
+      dKey: 'box pad-3',
+      fKey: 'box pad-4',
+      gKey: 'box pad-5',
+      hKey: 'box pad-6',
+      jKey: 'box pad-7'
     }
     this.handleKeyPress = this.handleKeyPress.bind(this)
     this.handleKeyUp = this.handleKeyUp.bind(this)
@@ -32,7 +32,7 @@ class App extends Component {
 
   handleKeyPress(event) {
     let tempArr = eval(`this.state.${event.key}Key`)
-    if (tempArr.length <= 3) {
+    if (tempArr.length <= 9) {
       tempArr = tempArr.concat(' active')
       eval(`this.setState({ ${event.key}Key: tempArr })`)
     }
@@ -40,7 +40,7 @@ class App extends Component {
 
   handleKeyUp(event) {
     let tempArr = eval(`this.state.${event.key}Key`)
-    tempArr = tempArr.slice(0, 3)
+    tempArr = tempArr.slice(0, 9)
     eval(`this.setState({ ${event.key}Key: tempArr })`)
   }
 

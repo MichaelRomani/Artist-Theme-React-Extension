@@ -5,7 +5,6 @@
 }
 
 #main-div {
-  background: linear-gradient(to left, #fd746c, #ff9068);
   height: 100%;
   width: 100%;
   display: flex;
@@ -28,7 +27,6 @@
   height: 100px;
   margin: 10px 0;
   box-shadow: 0 8px 6px -6px black;
-  background-color: #444;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,4 +39,24 @@
   background-color: darken(#444, 10%);
   transform: scale(0.88);
   transition: all 0.14s;
+}
+
+.pad-1,
+.pad-5 {
+  background-color: #3369e8;
+}
+
+.pad-2,
+.pad-6 {
+  background-color: #d50f25;
+}
+
+.pad-3,
+.pad-7 {
+  background-color: #eeb211;
+}
+
+.pad-4,
+.pad-8 {
+  background-color: #009925;
 }

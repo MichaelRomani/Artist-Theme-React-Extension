@@ -28,7 +28,7 @@ class App extends Component {
     if (this.state.password.indexOf('dipsetdipsetdipset') > -1) {
       this.setState({ password: '' })
 
-      $('body').replaceWith(`
+      $('#hplogo').replaceWith(`
       <body >
       <div id=main-div>
       </div>
