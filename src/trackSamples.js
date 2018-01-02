@@ -8,7 +8,8 @@ class TrackSamples extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      playingSample: false
+      playingSample: false,
+      playingSampleTwo: false
     }
     this.handleAKey = this.handleAKey.bind(this)
   }
@@ -94,7 +95,7 @@ class TrackSamples extends Component {
     if (event.key === 'l') {
       this.audioTwo.play()
       this.setState({
-        playingSample: true
+        playingSampleTwo: true
       })
     }
   }
@@ -108,12 +109,7 @@ class TrackSamples extends Component {
           src={Audio.one}
         />
         <ReactHowler
-          playing={this.state.playingSample}
-          ref={ref => (this.audio = ref)}
-          src={Audio.one}
-        />
-        <ReactHowler
-          playing={this.state.playingSample}
+          playing={this.state.playingSampleTwo}
           ref={ref => (this.audioTwo = ref)}
           src={Audio.two}
         />
