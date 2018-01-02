@@ -73,7 +73,7 @@ class TrackSamples extends Component {
         })
       }
     }
-    if (event.key === 'h') {
+    if (event.key === 'j') {
       let audioStartPoint = 60 / 84 * 6
       if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
       else {
@@ -82,17 +82,8 @@ class TrackSamples extends Component {
         })
       }
     }
-    if (event.key === 'j') {
-      let audioStartPoint = 60 / 84 * 7
-      if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
-      else {
-        this.setState({
-          playingSample: true
-        })
-      }
-    }
     if (event.key === 'k') {
-      let audioStartPoint = 60 / 84 * 8
+      let audioStartPoint = 60 / 84 * 7
       if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
       else {
         this.setState({
