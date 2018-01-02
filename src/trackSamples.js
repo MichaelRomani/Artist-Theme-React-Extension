@@ -82,31 +82,20 @@ class TrackSamples extends Component {
         })
       }
     }
-    if (event.key === 'k') {
-      let audioStartPoint = 60 / 84 * 7
-      if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
-      else {
-        this.setState({
-          playingSample: true
-        })
-      }
-    }
 
-    // if (event.key === 's') {
-    //   if (this.state.playingSample === true) this.audio.seek(2.96)
-    //   else {
-    //     this.setState({
-    //       playingSample: true
-    //     })
-    //   }
-    // }
-    if (event.key === 'p') {
+    if (event.key === 'k') {
       if (this.state.playingSample === true) {
         this.audio.stop()
         this.setState({
           playingSample: false
         })
       }
+    }
+    if (event.key === 'l') {
+      this.audioTwo.play()
+      this.setState({
+        playingSample: true
+      })
     }
   }
 
@@ -117,6 +106,16 @@ class TrackSamples extends Component {
           playing={this.state.playingSample}
           ref={ref => (this.audio = ref)}
           src={Audio.one}
+        />
+        <ReactHowler
+          playing={this.state.playingSample}
+          ref={ref => (this.audio = ref)}
+          src={Audio.one}
+        />
+        <ReactHowler
+          playing={this.state.playingSample}
+          ref={ref => (this.audioTwo = ref)}
+          src={Audio.two}
         />
       </div>
     )
