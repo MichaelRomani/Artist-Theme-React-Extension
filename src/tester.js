@@ -22,6 +22,7 @@ class App extends Component {
     this.handleKeyPress = this.handleKeyPress.bind(this)
     this.handleKeyUp = this.handleKeyUp.bind(this)
     this.startBeat = this.startBeat.bind(this)
+    this.showVideoToggle = this.showVideoToggle.bind(this)
   }
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeyPress, false)
@@ -47,6 +48,10 @@ class App extends Component {
     eval(`this.setState({ ${event.key}Key: tempArr })`)
   }
 
+  showVideoToggle() {
+    this.setState({ showVideo: !this.state.showVideo })
+  }
+
   startBeat() {
     this.setState({ beatPlaying: !this.state.beatPlaying })
   }
@@ -55,7 +60,6 @@ class App extends Component {
     return (
       <div className="a">
         <div>
-          <h1>DRUM PAD</h1>
           <div className="pad">
             <div className={this.state.aKey}>A</div>
             <div className={this.state.sKey}>S</div>
@@ -66,13 +70,16 @@ class App extends Component {
             <div className={this.state.jKey}>J</div>
             <div className={this.state.kKey}>K</div>
           </div>
-          <div>
+          <div className="button-holder">
             <button className="play-button" onClick={this.startBeat}>
               {this.state.beatPlaying ? 'Stop' : 'Play'}
             </button>
+            <button className="play-button" onClick={this.showVideoToggle}>
+              Watch Tutorial
+            </button>
           </div>
           <div>
-            <TrackSamples />
+            {this.state.beatPlaying ? <TrackSamples /> : <div />}
             <TrackDrums beat={this.state.beatPlaying} />
           </div>
         </div>

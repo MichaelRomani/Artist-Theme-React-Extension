@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
+import './App.css'
 import Tester from './tester'
-
+import App from './App'
 import $ from 'jquery'
 
 //List of Divs
@@ -16,6 +16,7 @@ import $ from 'jquery'
 //       </body>
 //     `)
 //.jsb - this is section w buttons
+//#viewport - this is main screen, can append to put something on bottom end of screen
 
 $('#hplogo').after(`
 <body >
@@ -24,13 +25,30 @@ $('#hplogo').after(`
 </body>
 `)
 
+$('#hplogo').replaceWith(`
+<body >
+<div id=hplogo>
+</div>
+</body>
+`)
+
+// $('#hplogo').replaceWith(
+//   `<img alt="Google" height="92" id="hplogo" src="/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" srcset="/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png 1x, /images/branding/googlelogo/2x/googlelogo_color_272x92dp.png 2x" style="padding-top:109px" width="272" onload="window.lol&amp;&amp;lol()">`
+// )
+
 $('.jsb').remove()
 
-const viewport = document.getElementById('main-div')
-const app = document.createElement('div')
-app.id = 'root'
-if (viewport) viewport.appendChild(app)
+const beatButtons = document.getElementById('main-div')
+const testApp = document.createElement('div')
+testApp.id = 'root'
+if (beatButtons) beatButtons.appendChild(testApp)
 ReactDOM.render(<Tester />, document.getElementById('root'))
+
+const mainLogo = document.getElementById('hplogo')
+const app = document.createElement('div')
+app.id = 'root2'
+if (mainLogo) mainLogo.appendChild(app)
+ReactDOM.render(<App />, document.getElementById('root2'))
 
 // var $ = jQuery
 

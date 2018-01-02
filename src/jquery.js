@@ -195,3 +195,31 @@
 // //   }
 // // }
 // // xhr.send()
+
+// let recordImg = document.getElementById('record-img')
+// let out = false
+// $(document).on('click', '#album', function() {
+//   if (!out) {
+//     recordImg.style = `
+//   position: absolute;
+//   margin-left: 47%;
+//   margin-right: auto;
+//   left: 0;
+//   right: 0;
+//   height:200px;
+//    z-index: 1;
+//    `
+//     out = true
+//   } else if (out) {
+//     recordImg.style = `
+//   position: absolute;
+//   margin-left: auto;
+//   margin-right: auto;
+//   left: 0;
+//   right: 0;
+//   height:200px;
+//    z-index: 1;
+//    `
+//     out = false
+//   }
+// })

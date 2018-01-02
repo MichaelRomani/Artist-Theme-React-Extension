@@ -1,7 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
 .App {
   text-align: center;
   margin: 70px auto;
   width: 50%;
+}
+
+#youtube-video {
+  margin-top: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #main-div {
@@ -15,6 +29,10 @@
   font-family: 'Oswald', sans-serif;
 }
 
+.button-holder {
+  margin-top: 20px;
+}
+
 .pad {
   margin-top: 100px;
   width: 800px;
@@ -26,7 +44,6 @@
 .box {
   width: 60px;
   height: 60px;
-  margin: 10px 0;
   display: flex;
   justify-content: center;
   align-items: center;
