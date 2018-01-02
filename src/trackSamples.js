@@ -98,11 +98,11 @@ class TrackSamples extends Component {
         })
       }
     }
-    if (event.key === 'l') {
-      this.setState({
-        playingSampleTwo: true
-      })
-    }
+    // if (event.key === 'l') {
+    //   this.setState({
+    //     playingSampleTwo: true
+    //   })
+    // }
   }
 
   render() {
@@ -113,11 +113,11 @@ class TrackSamples extends Component {
           ref={ref => (this.audio = ref)}
           src={Audio.one}
         />
-        <ReactHowler
+        {/* <ReactHowler
           playing={this.state.playingSampleTwo}
           ref={ref => (this.audioTwo = ref)}
           src={Audio.two}
-        />
+        /> */}
       </div>
     )
   }
