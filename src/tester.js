@@ -39,7 +39,8 @@ class App extends Component {
       height: '100px',
       margin: '10px 0',
       boxShadow: '0 8px 6px -6px black',
-      backgroundColor: 'orange',
+      transition: 'backgroundColor 0.5s ease',
+      backgroundColor: 'lightrey',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -49,10 +50,11 @@ class App extends Component {
     }
     const style2 = {
       width: '100px',
+
       height: '100px',
       margin: '10px 0',
       boxShadow: '0 8px 6px -6px black',
-      backgroundColor: 'green',
+      backgroundColor: 'grey',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -66,13 +68,10 @@ class App extends Component {
           <h1>DRUM PAD</h1>
           <div className="pad">
             {['A', 'S', 'D', 'F', 'G', 'H', 'J'].map(keyLetter => {
-              let stateLetterBoolen = eval(
-                `this.state.${keyLetter.toLowerCase()}Key`
-              )
               return (
                 <div
                   key={keyLetter}
-                  style={stateLetterBoolen ? style1 : style2}
+                  className={this.state.aKey ? 'box active' : 'box'}
                 >
                   {keyLetter}
                 </div>
