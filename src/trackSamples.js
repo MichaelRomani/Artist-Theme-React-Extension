@@ -29,7 +29,8 @@ class TrackSamples extends Component {
       }
     }
     if (event.key === 's') {
-      if (this.state.playingSample === true) this.audio.seek(0.7142)
+      let audioStartPoint = 60 / 84 * 1
+      if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
       else {
         this.setState({
           playingSample: true
@@ -37,7 +38,8 @@ class TrackSamples extends Component {
       }
     }
     if (event.key === 'd') {
-      if (this.state.playingSample === true) this.audio.seek(1.43)
+      let audioStartPoint = 60 / 84 * 2
+      if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
       else {
         this.setState({
           playingSample: true
@@ -45,7 +47,8 @@ class TrackSamples extends Component {
       }
     }
     if (event.key === 'f') {
-      if (this.state.playingSample === true) this.audio.seek(2.14)
+      let audioStartPoint = 60 / 84 * 3
+      if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
       else {
         this.setState({
           playingSample: true
@@ -53,7 +56,44 @@ class TrackSamples extends Component {
       }
     }
     if (event.key === 'g') {
-      if (this.state.playingSample === true) this.audio.seek(2.86)
+      let audioStartPoint = 60 / 84 * 4
+      if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
+      else {
+        this.setState({
+          playingSample: true
+        })
+      }
+    }
+    if (event.key === 'h') {
+      let audioStartPoint = 60 / 84 * 5
+      if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
+      else {
+        this.setState({
+          playingSample: true
+        })
+      }
+    }
+    if (event.key === 'h') {
+      let audioStartPoint = 60 / 84 * 6
+      if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
+      else {
+        this.setState({
+          playingSample: true
+        })
+      }
+    }
+    if (event.key === 'j') {
+      let audioStartPoint = 60 / 84 * 7
+      if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
+      else {
+        this.setState({
+          playingSample: true
+        })
+      }
+    }
+    if (event.key === 'k') {
+      let audioStartPoint = 60 / 84 * 8
+      if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
       else {
         this.setState({
           playingSample: true
