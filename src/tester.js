@@ -1,11 +1,12 @@
-/*global chrome*/
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import './App.css'
 import TrackSamples from './trackSamples'
 import TrackDrums from './trackDrums'
-import $ from 'jquery'
+import { changeLogo } from './store/store'
+import logoImags from './logoImgs'
 
-class App extends Component {
+class Tester extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -17,7 +18,8 @@ class App extends Component {
       hKey: 'box pad-6',
       jKey: 'box pad-7',
       kKey: 'box pad-8',
-      beatPlaying: false
+      beatPlaying: false,
+      showVideo: false
     }
     this.handleKeyPress = this.handleKeyPress.bind(this)
     this.handleKeyUp = this.handleKeyUp.bind(this)
@@ -49,7 +51,11 @@ class App extends Component {
   }
 
   showVideoToggle() {
+    this.setState({ beatPlaying: false })
     this.setState({ showVideo: !this.state.showVideo })
+    this.state.showVideo
+      ? this.props.changeLogo(logoImags.google)
+      : this.props.changeLogo(logoImags.howToVid)
   }
 
   startBeat() {
@@ -88,32 +94,16 @@ class App extends Component {
   }
 }
 
-export default App
+const mapState = state => {
+  return {
+    logo: state.googleLogo
+  }
+}
 
-// let recordImg = document.getElementById('record-img')
-// let out = false
-// $(document).on('click', '#album', function() {
-//   if (!out) {
-//     recordImg.style = `
-//   position: absolute;
-//   margin-left: 47%;
-//   margin-right: auto;
-//   left: 0;
-//   right: 0;
-//   height:200px;
-//    z-index: 1;
-//    `
-//     out = true
-//   } else if (out) {
-//     recordImg.style = `
-//   position: absolute;
-//   margin-left: auto;
-//   margin-right: auto;
-//   left: 0;
-//   right: 0;
-//   height:200px;
-//    z-index: 1;
-//    `
-//     out = false
-//   }
-// })
+const mapDispatch = dispatch => {
+  return {
+    changeLogo: logo => dispatch(changeLogo(logo))
+  }
+}
+
+export default connect(mapState, mapDispatch)(Tester)

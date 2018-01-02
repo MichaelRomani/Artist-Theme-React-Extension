@@ -1,10 +1,12 @@
 import { createStore, combineReducers } from 'redux'
-import GoogleLogo from './googleLogo'
+import googleLogo from './googleLogo'
 
 const reducer = combineReducers({
-  GoogleLogo
+  googleLogo
 })
 
 const store = createStore(reducer)
 
 export default store
+
+export * from './googleLogo'
