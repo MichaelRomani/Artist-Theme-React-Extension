@@ -17,7 +17,7 @@
 }
 
 .pad {
-  width: 1000px;
+  width: 500px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -38,27 +38,7 @@
 }
 
 .active {
-  width: 100px;
-  height: 100px;
-  margin: 10px 0;
-  box-shadow: 0 8px 6px -6px black;
-  background-color: rgb(176, 52, 52);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  color: rgba(255, 255, 255, 0.4);
-  user-select: none;
+  background-color: darken(#444, 10%);
+  transform: scale(1.1);
+  transition: all 0.2s;
 }
-
-/*
-.pad-1,
-.pad-2,
-.pad-3,
-.pad-4,
-.pad-5,
-.pad-6,
-.pad-7,
-.pad-8 {
-  border: 2px solid #e5446d;
-} */

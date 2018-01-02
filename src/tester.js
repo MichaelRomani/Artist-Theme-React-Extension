@@ -1,6 +1,6 @@
 /*global chrome*/
 import React, { Component } from 'react'
-import './App.scss'
+import './App.css'
 import TrackSamples from './trackSamples'
 import TrackDrums from './trackDrums'
 import $ from 'jquery'
