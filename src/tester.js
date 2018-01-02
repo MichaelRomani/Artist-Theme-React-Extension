@@ -43,13 +43,13 @@ class App extends Component {
         <div>
           <h1>DRUM PAD</h1>
           <div className="pad">
-            <div className={this.state.aKey}>'A'</div>
-            <div className={this.state.sKey}>'S'</div>
-            <div className={this.state.dKey}>'D'</div>
-            <div className={this.state.fKey}>'F'</div>
-            <div className={this.state.gKey}>'G'</div>
-            <div className={this.state.hKey}>'H'</div>
-            <div className={this.state.jKey}>'J'</div>
+            <div className={this.state.aKey}>A</div>
+            <div className={this.state.sKey}>S</div>
+            <div className={this.state.dKey}>D</div>
+            <div className={this.state.fKey}>F</div>
+            <div className={this.state.gKey}>G</div>
+            <div className={this.state.hKey}>H</div>
+            <div className={this.state.jKey}>J</div>
           </div>
           <div>
             <TrackSamples />
