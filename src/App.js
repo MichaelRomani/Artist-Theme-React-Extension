@@ -1,6 +1,5 @@
-/*global chrome*/
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
+import { connect } from 'react-redux'
 import './App.css'
 import $ from 'jquery'
 
@@ -28,4 +27,10 @@ class App extends Component {
   }
 }
 
-export default App
+const mapState = state => {
+  return {
+    logo: state.GoogleLogo
+  }
+}
+
+export default connect(mapState)(App)
