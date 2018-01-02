@@ -18,6 +18,10 @@ class TrackSamples extends Component {
     window.addEventListener('keypress', this.handleAKey, false)
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('keypress', this.handleAKey, false)
+  }
+
   handleAKey(event) {
     if (event.key === 'a') {
       if (this.state.playingSample === true) {

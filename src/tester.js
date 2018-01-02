@@ -25,6 +25,11 @@ class App extends Component {
     window.addEventListener('keyup', this.handleKeyUp, false)
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.handleKeyPress, false)
+    window.removeEventListener('keyup', this.handleKeyUp, false)
+  }
+
   handleKeyPress(event) {
     let tempArr = eval(`this.state.${event.key}Key`)
     if (tempArr.length <= 3) {
