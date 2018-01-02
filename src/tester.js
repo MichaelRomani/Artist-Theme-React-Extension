@@ -16,10 +16,12 @@ class App extends Component {
       gKey: 'box pad-5',
       hKey: 'box pad-6',
       jKey: 'box pad-7',
-      kKey: 'box pad-8'
+      kKey: 'box pad-8',
+      beatPlaying: false
     }
     this.handleKeyPress = this.handleKeyPress.bind(this)
     this.handleKeyUp = this.handleKeyUp.bind(this)
+    this.startBeat = this.startBeat.bind(this)
   }
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeyPress, false)
@@ -45,6 +47,10 @@ class App extends Component {
     eval(`this.setState({ ${event.key}Key: tempArr })`)
   }
 
+  startBeat() {
+    this.setState({ beatPlaying: !this.state.beatPlaying })
+  }
+
   render() {
     return (
       <div className="a">
@@ -58,11 +64,16 @@ class App extends Component {
             <div className={this.state.gKey}>G</div>
             <div className={this.state.hKey}>H</div>
             <div className={this.state.jKey}>J</div>
-            <div className={this.state.kKey}>J</div>
+            <div className={this.state.kKey}>K</div>
+          </div>
+          <div>
+            <button className="play-button" onClick={this.startBeat}>
+              {this.state.beatPlaying ? 'Stop' : 'Play'}
+            </button>
           </div>
           <div>
             <TrackSamples />
-            <TrackDrums />
+            <TrackDrums beat={this.state.beatPlaying} />
           </div>
         </div>
       </div>

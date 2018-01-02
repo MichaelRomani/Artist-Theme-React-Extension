@@ -10,11 +10,13 @@ class TrackSamples extends Component {
     this.state = {
       playingDrums: false
     }
+    this.didMount = false
     this.handleAKeyPress = this.handleAKeyPress.bind(this)
   }
 
   componentDidMount() {
     window.addEventListener('keypress', this.handleAKeyPress, false)
+    this.didMount = true
   }
 
   componentWillUnmount() {
@@ -43,10 +45,11 @@ class TrackSamples extends Component {
   }
 
   render() {
+    if (!this.props.beat && this.didMount) this.audioDrums.stop()
     return (
       <div>
         <ReactHowler
-          playing={this.state.playingDrums}
+          playing={this.props.beat}
           ref={ref => (this.audioDrums = ref)}
           src={Audio.two}
         />
