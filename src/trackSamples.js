@@ -95,6 +95,17 @@ class TrackSamples extends Component {
     }
 
     if (event.key === 'k') {
+      let audioStartPoint = 60 / 84 * 7
+      if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
+      else {
+        this.setState({
+          playingSample: true
+        })
+        this.audio.seek(audioStartPoint)
+      }
+    }
+
+    if (event.key === 'l') {
       if (this.state.playingSample === true) {
         this.audio.stop()
         this.setState({

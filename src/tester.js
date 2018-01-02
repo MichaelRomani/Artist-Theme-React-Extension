@@ -15,7 +15,8 @@ class App extends Component {
       fKey: 'box pad-4',
       gKey: 'box pad-5',
       hKey: 'box pad-6',
-      jKey: 'box pad-7'
+      jKey: 'box pad-7',
+      kKey: 'box pad-8'
     }
     this.handleKeyPress = this.handleKeyPress.bind(this)
     this.handleKeyUp = this.handleKeyUp.bind(this)
@@ -57,6 +58,7 @@ class App extends Component {
             <div className={this.state.gKey}>G</div>
             <div className={this.state.hKey}>H</div>
             <div className={this.state.jKey}>J</div>
+            <div className={this.state.kKey}>J</div>
           </div>
           <div>
             <TrackSamples />
