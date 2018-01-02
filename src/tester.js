@@ -42,7 +42,7 @@ class App extends Component {
           <div className="pad">
             {['A', 'S', 'D', 'F', 'G', 'H', 'J'].map(keyLetter => {
               let keyStateBool = eval(
-                `${thisHolder}.state.${keyLetter.toLocaleLowerCase()}Key`
+                `${thisHolder}.state.${keyLetter.toLowerCase()}Key`
               )
               return (
                 <div
