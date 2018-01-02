@@ -42,7 +42,7 @@ class App extends Component {
       <div className="a">
         <div>
           <h1>DRUM PAD</h1>
-          <div>
+          <div className="pad">
             <div className={this.state.aKey}>'A'</div>
             <div className={this.state.sKey}>'S'</div>
             <div className={this.state.dKey}>'D'</div>
