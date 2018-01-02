@@ -1,10 +1,33 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import App from './App'
-import App2 from './App2'
+import Tester from './tester'
 
 import $ from 'jquery'
+
+//List of Divs
+//#hplogo - top logo
+//$('.fbar').remove()
+
+// $('#hplogo').replaceWith(`
+//       <body >
+//       <div id=main-div>
+//       </div>
+//       </body>
+//     `)
+
+$('.jsb').replaceWith(`
+<body >
+<div style="width: 1000px; align-content: center; justify-content: center;" id=main-div>
+</div>
+</body>
+`)
+
+const viewport = document.getElementById('main-div')
+const app = document.createElement('div')
+app.id = 'root'
+if (viewport) viewport.appendChild(app)
+ReactDOM.render(<Tester />, document.getElementById('root'))
 
 // var $ = jQuery
 
@@ -36,30 +59,30 @@ import $ from 'jquery'
 // var newSrcSet = num[today].url
 
 //Removes main 'google logo' replaces with main
-$('body').append(
-  `
-<div id='record-img'></div>
-`
-)
+// $('body').append(
+//   `
+// <div id='record-img'></div>
+// `
+// )
 
-// Get the element to prepend our app to from https://www.google.com.
-// This could be a specific element on a website or something more general like `document.body`.
-const viewport2 = document.getElementById('record-img')
+// // Get the element to prepend our app to from https://www.google.com.
+// // This could be a specific element on a website or something more general like `document.body`.
+// const viewport2 = document.getElementById('record-img')
 
-// Create a div to render the App component to.
-const app2 = document.createElement('div')
+// // Create a div to render the App component to.
+// const app2 = document.createElement('div')
 
-// Set the app element's id to `root`.
-// This name is the same as the element that create-react-app renders to by default
-// so it will work on the development server too.
-app2.id = 'root'
+// // Set the app element's id to `root`.
+// // This name is the same as the element that create-react-app renders to by default
+// // so it will work on the development server too.
+// app2.id = 'root'
 
-// Prepend the App to the viewport element in production if it exists on the page.
-// You could also use `appendChild` depending on your needs.
-if (viewport2) viewport2.appendChild(app2)
+// // Prepend the App to the viewport element in production if it exists on the page.
+// // You could also use `appendChild` depending on your needs.
+// if (viewport2) viewport2.appendChild(app2)
 
-// Render the App.
-ReactDOM.render(<App />, document.getElementById('root'))
+// // Render the App.
+// ReactDOM.render(<App />, document.getElementById('root'))
 
 // Get the element to prepend our app to from https://www.google.com.
 // This could be a specific element on a website or something more general like `document.body`.
