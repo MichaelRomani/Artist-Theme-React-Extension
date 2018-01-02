@@ -1,7 +1,7 @@
 /*global chrome*/
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import './App.scss'
+import './App.css'
 
 import TrackSamples from './trackSamples'
 import TrackDrums from './trackDrums'
@@ -13,9 +13,7 @@ class App extends Component {
     super(props)
     this.state = {
       player: false,
-      password: '',
-      change: true,
-      counter: 0
+      password: ''
     }
     this.value = 0
     this.handleAKey = this.handleAKey.bind(this)

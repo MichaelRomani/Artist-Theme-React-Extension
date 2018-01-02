@@ -1,6 +1,6 @@
 /*global chrome*/
 import React, { Component } from 'react'
-import './App.css'
+import './App.scss'
 import TrackSamples from './trackSamples'
 import TrackDrums from './trackDrums'
 import $ from 'jquery'
@@ -34,44 +34,20 @@ class App extends Component {
   }
 
   render() {
-    const style1 = {
-      width: '100px',
-      height: '100px',
-      margin: '10px 0',
-      boxShadow: '0 8px 6px -6px black',
-      transition: 'backgroundColor 0.5s ease',
-      backgroundColor: 'lightrey',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      fontSize: '20px',
-      color: 'white',
-      userSelect: 'none'
-    }
-    const style2 = {
-      width: '100px',
-
-      height: '100px',
-      margin: '10px 0',
-      boxShadow: '0 8px 6px -6px black',
-      backgroundColor: 'grey',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      fontSize: '29px',
-      color: 'black',
-      userSelect: 'none'
-    }
+    let thisHolder = this
     return (
       <div className="a">
         <div>
           <h1>DRUM PAD</h1>
           <div className="pad">
             {['A', 'S', 'D', 'F', 'G', 'H', 'J'].map(keyLetter => {
+              let keyStateBool = eval(
+                `${thisHolder}.state.${keyLetter.toLocaleLowerCase()}Key`
+              )
               return (
                 <div
                   key={keyLetter}
-                  className={this.state.aKey ? 'box active' : 'box'}
+                  className={keyStateBool ? 'box active' : 'box'}
                 >
                   {keyLetter}
                 </div>
