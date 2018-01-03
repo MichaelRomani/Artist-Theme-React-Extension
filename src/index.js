@@ -33,6 +33,10 @@ app.id = 'root2'
 if (mainLogo) mainLogo.appendChild(app)
 ReactDOM.render(<App />, document.getElementById('root2'))
 
+//Element - seemingly occassional (holiday themed)
+let addedElBelowSearch = document.getElementById('prm-pt')
+if (addedElBelowSearch) addedElBelowSearch.remove()
+
 //List of Divs
 //#hplogo - top logo
 //$('.fbar').remove()

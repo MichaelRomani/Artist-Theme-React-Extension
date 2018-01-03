@@ -88,7 +88,7 @@ class Tester extends Component {
               onClick={this.toggleBeatPlay}
             />
             <button className="video-button" onClick={this.showVideoToggle}>
-              {this.state.showVideo ? 'Close Tutorial' : 'Watch Tutorial'}
+              {this.state.showVideo ? 'Close Tutorial' : 'Tutorial'}
             </button>
           </div>
           <div>
