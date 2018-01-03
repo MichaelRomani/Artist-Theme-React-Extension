@@ -5,10 +5,12 @@ const logoImg = {
     <div>
       <img
         alt="Google"
-        height="180px"
+        height="92"
         id="hplogo"
-        src="http://www.google.com/logos/doodles/2017/44th-anniversary-of-the-birth-of-hip-hop-5102114591211520.3-2xa.gif"
-        style={{ paddingTop: '20px' }}
+        src="/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+        srcset="/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png 1x, /images/branding/googlelogo/2x/googlelogo_color_272x92dp.png 2x"
+        style={{ paddingTop: '109px' }}
+        width="272"
         onload="window.lol&amp;&amp;lol()"
       />
     </div>

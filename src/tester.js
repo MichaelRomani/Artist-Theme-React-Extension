@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import './App.css'
 import TrackSamples from './trackSamples'
 import TrackDrums from './trackDrums'
-import { changeLogo } from './store/store'
+import { changeLogo, changePlayButtonImg } from './store/store'
 import logoImags from './logoImgs'
 
 class Tester extends Component {
@@ -23,7 +23,7 @@ class Tester extends Component {
     }
     this.handleKeyPress = this.handleKeyPress.bind(this)
     this.handleKeyUp = this.handleKeyUp.bind(this)
-    this.startBeat = this.startBeat.bind(this)
+    this.toggleBeatPlay = this.toggleBeatPlay.bind(this)
     this.showVideoToggle = this.showVideoToggle.bind(this)
   }
   componentDidMount() {
@@ -58,7 +58,9 @@ class Tester extends Component {
       : this.props.changeLogo(logoImags.howToVid)
   }
 
-  startBeat() {
+  toggleBeatPlay() {
+    this.setState({ showVideo: false })
+    this.props.changeLogo(logoImags.google)
     this.setState({ beatPlaying: !this.state.beatPlaying })
   }
 
@@ -76,11 +78,14 @@ class Tester extends Component {
             <div className={this.state.jKey}>J</div>
             <div className={this.state.kKey}>K</div>
           </div>
-          <div className="button-holder">
-            <button className="play-button" onClick={this.startBeat}>
-              {this.state.beatPlaying ? 'Stop' : 'Play'}
-            </button>
-            <button className="play-button" onClick={this.showVideoToggle}>
+          <div id="button-holder">
+            <img
+              className="play-button"
+              alt="play button"
+              src={this.props.playButton}
+              onClick={this.toggleBeatPlay}
+            />
+            <button className="video-button" onClick={this.showVideoToggle}>
               Watch Tutorial
             </button>
           </div>
@@ -96,13 +101,15 @@ class Tester extends Component {
 
 const mapState = state => {
   return {
-    logo: state.googleLogo
+    logo: state.googleLogo,
+    playButton: state.playButton
   }
 }
 
 const mapDispatch = dispatch => {
   return {
-    changeLogo: logo => dispatch(changeLogo(logo))
+    changeLogo: logo => dispatch(changeLogo(logo)),
+    changePlayButtonImg: img => dispatch(changePlayButtonImg(img))
   }
 }
 

@@ -29,10 +29,6 @@ body {
   font-family: 'Oswald', sans-serif;
 }
 
-.button-holder {
-  margin-top: 20px;
-}
-
 .pad {
   margin-top: 100px;
   width: 800px;
@@ -78,7 +74,14 @@ body {
   background-color: #009925;
 }
 
-.play-button {
+#button-holder {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-button {
   height: 36px;
   background-image: -webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
   background-color: #f2f2f2;
@@ -92,4 +95,9 @@ body {
   padding: 10px 30px;
   text-align: center;
   text-decoration: none;
+}
+
+.play-button {
+  height: 60px;
+  padding: 10px 30px;
 }
