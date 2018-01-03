@@ -18,6 +18,7 @@ class Tester extends Component {
       hKey: 'box pad-6',
       jKey: 'box pad-7',
       kKey: 'box pad-8',
+      lKey: 'box pad-9',
       beatPlaying: false,
       showVideo: false
     }
@@ -77,6 +78,7 @@ class Tester extends Component {
             <div className={this.state.hKey}>H</div>
             <div className={this.state.jKey}>J</div>
             <div className={this.state.kKey}>K</div>
+            <div className={this.state.lKey}>L</div>
           </div>
           <div id="button-holder">
             <img
@@ -86,7 +88,7 @@ class Tester extends Component {
               onClick={this.toggleBeatPlay}
             />
             <button className="video-button" onClick={this.showVideoToggle}>
-              Watch Tutorial
+              {this.state.showVideo ? 'Close Tutorial' : 'Watch Tutorial'}
             </button>
           </div>
           <div>
