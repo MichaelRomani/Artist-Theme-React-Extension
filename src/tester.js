@@ -1,11 +1,12 @@
-/*global chrome*/
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import './App.css'
 import TrackSamples from './trackSamples'
 import TrackDrums from './trackDrums'
-import $ from 'jquery'
+import { changeLogo, changePlayButtonImg } from './store/store'
+import logoImags from './logoImgs'
 
-class App extends Component {
+class Tester extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -17,11 +18,13 @@ class App extends Component {
       hKey: 'box pad-6',
       jKey: 'box pad-7',
       kKey: 'box pad-8',
-      beatPlaying: false
+      beatPlaying: false,
+      showVideo: false
     }
     this.handleKeyPress = this.handleKeyPress.bind(this)
     this.handleKeyUp = this.handleKeyUp.bind(this)
-    this.startBeat = this.startBeat.bind(this)
+    this.toggleBeatPlay = this.toggleBeatPlay.bind(this)
+    this.showVideoToggle = this.showVideoToggle.bind(this)
   }
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeyPress, false)
@@ -47,7 +50,17 @@ class App extends Component {
     eval(`this.setState({ ${event.key}Key: tempArr })`)
   }
 
-  startBeat() {
+  showVideoToggle() {
+    this.setState({ beatPlaying: false })
+    this.setState({ showVideo: !this.state.showVideo })
+    this.state.showVideo
+      ? this.props.changeLogo(logoImags.google)
+      : this.props.changeLogo(logoImags.howToVid)
+  }
+
+  toggleBeatPlay() {
+    this.setState({ showVideo: false })
+    this.props.changeLogo(logoImags.google)
     this.setState({ beatPlaying: !this.state.beatPlaying })
   }
 
@@ -55,7 +68,6 @@ class App extends Component {
     return (
       <div className="a">
         <div>
-          <h1>DRUM PAD</h1>
           <div className="pad">
             <div className={this.state.aKey}>A</div>
             <div className={this.state.sKey}>S</div>
@@ -66,13 +78,19 @@ class App extends Component {
             <div className={this.state.jKey}>J</div>
             <div className={this.state.kKey}>K</div>
           </div>
-          <div>
-            <button className="play-button" onClick={this.startBeat}>
-              {this.state.beatPlaying ? 'Stop' : 'Play'}
+          <div id="button-holder">
+            <img
+              className="play-button"
+              alt="play button"
+              src={this.props.playButton}
+              onClick={this.toggleBeatPlay}
+            />
+            <button className="video-button" onClick={this.showVideoToggle}>
+              Watch Tutorial
             </button>
           </div>
           <div>
-            <TrackSamples />
+            {this.state.beatPlaying ? <TrackSamples /> : <div />}
             <TrackDrums beat={this.state.beatPlaying} />
           </div>
         </div>
@@ -81,32 +99,18 @@ class App extends Component {
   }
 }
 
-export default App
+const mapState = state => {
+  return {
+    logo: state.googleLogo,
+    playButton: state.playButton
+  }
+}
 
-// let recordImg = document.getElementById('record-img')
-// let out = false
-// $(document).on('click', '#album', function() {
-//   if (!out) {
-//     recordImg.style = `
-//   position: absolute;
-//   margin-left: 47%;
-//   margin-right: auto;
-//   left: 0;
-//   right: 0;
-//   height:200px;
-//    z-index: 1;
-//    `
-//     out = true
-//   } else if (out) {
-//     recordImg.style = `
-//   position: absolute;
-//   margin-left: auto;
-//   margin-right: auto;
-//   left: 0;
-//   right: 0;
-//   height:200px;
-//    z-index: 1;
-//    `
-//     out = false
-//   }
-// })
+const mapDispatch = dispatch => {
+  return {
+    changeLogo: logo => dispatch(changeLogo(logo)),
+    changePlayButtonImg: img => dispatch(changePlayButtonImg(img))
+  }
+}
+
+export default connect(mapState, mapDispatch)(Tester)
