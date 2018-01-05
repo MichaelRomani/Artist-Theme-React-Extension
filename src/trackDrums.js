@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import ReactHowler from 'react-howler'
-import Audio from './audio/audioDrakeDrum.js'
+import AudioDrakeDrum from './audio/audioDrakeDrum.js'
 
 class TrackSamples extends Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class TrackSamples extends Component {
         <ReactHowler
           playing={this.props.beat}
           ref={ref => (this.audioDrums = ref)}
-          src={Audio.one}
+          src={AudioDrakeDrum.one}
         />
       </div>
     )

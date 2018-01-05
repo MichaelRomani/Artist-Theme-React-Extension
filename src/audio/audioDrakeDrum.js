@@ -1,4 +1,4 @@
-const audio = {
+const audioDrakeDrum = {
   one:
     `data:audio/wav;base64, SUQzBAAAAAACV1RYWFgAAAASAAADbWFqb3JfYnJhbmQATTRBIABUWFhYAAAAEQAAA21pbm9yX3Zl
     cnNpb24AMABUWFhYAAAAIAAAA2NvbXBhdGlibGVfYnJhbmRzAE00QSBtcDQyaXNvbQBUWFhYAAAA
@@ -45688,4 +45688,4 @@ const audio = {
     `
     }
 
-export default audio
+export default audioDrakeDrum
