@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import './App.css'
-import TrackDrakeSamples from './trackSamples'
+import TrackDrakeSamples from './trackDrakeSamples'
 import TrackDrums from './trackDrums'
 import { changeLogo, changePlayButtonImg } from './store/store'
 import logoImags from './logoImgs'

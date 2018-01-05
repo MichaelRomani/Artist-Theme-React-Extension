@@ -137,4 +137,4 @@ class TrackSamples extends Component {
     )
   }
 }
-export default TrackSamples
+export default TrackDrakeSamples
