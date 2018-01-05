@@ -34,7 +34,7 @@ class TrackDrakeSamples extends Component {
       }
     }
     if (event.key === 's') {
-      let audioStartPoint = 60 / 84 * 1
+      let audioStartPoint = 60 / 90 * 1
       if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
       else {
         this.setState({
@@ -44,7 +44,7 @@ class TrackDrakeSamples extends Component {
       }
     }
     if (event.key === 'd') {
-      let audioStartPoint = 60 / 84 * 2
+      let audioStartPoint = 60 / 90 * 2
       if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
       else {
         this.setState({
@@ -54,7 +54,7 @@ class TrackDrakeSamples extends Component {
       }
     }
     if (event.key === 'f') {
-      let audioStartPoint = 60 / 84 * 3
+      let audioStartPoint = 60 / 90 * 3
       if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
       else {
         this.setState({
@@ -64,7 +64,7 @@ class TrackDrakeSamples extends Component {
       }
     }
     if (event.key === 'g') {
-      let audioStartPoint = 60 / 84 * 4
+      let audioStartPoint = 60 / 90 * 4
       if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
       else {
         this.setState({
@@ -74,7 +74,7 @@ class TrackDrakeSamples extends Component {
       }
     }
     if (event.key === 'h') {
-      let audioStartPoint = 60 / 84 * 5
+      let audioStartPoint = 60 / 90 * 5
       if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
       else {
         this.setState({
@@ -84,7 +84,7 @@ class TrackDrakeSamples extends Component {
       }
     }
     if (event.key === 'j') {
-      let audioStartPoint = 60 / 84 * 6
+      let audioStartPoint = 60 / 90 * 6
       if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
       else {
         this.setState({
@@ -95,7 +95,7 @@ class TrackDrakeSamples extends Component {
     }
 
     if (event.key === 'k') {
-      let audioStartPoint = 60 / 84 * 7
+      let audioStartPoint = 60 / 90 * 7
       if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
       else {
         this.setState({
@@ -125,6 +125,7 @@ class TrackDrakeSamples extends Component {
       <div>
         <ReactHowler
           playing={this.state.playingSample}
+          volume={0.7}
           ref={ref => (this.audio = ref)}
           src={AudioDrakeSample.one}
         />
