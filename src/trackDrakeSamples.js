@@ -125,7 +125,7 @@ class TrackDrakeSamples extends Component {
       <div>
         <ReactHowler
           playing={this.state.playingSample}
-          volume={0.7}
+          volume={0.39}
           ref={ref => (this.audio = ref)}
           src={AudioDrakeSample.one}
         />

@@ -87,6 +87,12 @@ class Tester extends Component {
               src={this.props.playButton}
               onClick={this.toggleBeatPlay}
             />
+
+            <select className="video-button">
+              <option>Choose Song</option>
+              <option value="anthem">Anthem - Dipset</option>
+              <option value="zero">0 to 100 - Drake</option>
+            </select>
             <button className="video-button" onClick={this.showVideoToggle}>
               {this.state.showVideo ? 'Close Tutorial' : 'Tutorial'}
             </button>
