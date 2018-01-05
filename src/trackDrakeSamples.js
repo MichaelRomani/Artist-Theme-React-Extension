@@ -4,7 +4,7 @@ import './App.css'
 import ReactHowler from 'react-howler'
 import AudioDrakeSample from './audio/audioDrakeSample.js'
 
-class TrackSamples extends Component {
+class TrackDrakeSamples extends Component {
   constructor(props) {
     super(props)
     this.state = {
