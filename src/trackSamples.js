@@ -14,6 +14,7 @@ class TrackSamples extends Component {
       playingSampleTwo: false
     }
     this.BMP = 0
+    this.volume = 0
     this.handleAKey = this.handleAKey.bind(this)
   }
 
@@ -23,10 +24,12 @@ class TrackSamples extends Component {
       case 'Dipset-Anthem':
         this.audio.stop()
         this.BPM = 84
+        this.volume = 1
         break
       case 'Drake-0-100':
         this.audio.stop()
         this.BPM = 90
+        this.volume = 0.39
         break
       default:
         this.BPM = 0
@@ -150,6 +153,7 @@ class TrackSamples extends Component {
           playing={this.state.playingSample}
           ref={ref => (this.audio = ref)}
           src={songSample}
+          volume={this.volume}
         />
         {/* <ReactHowler
           playing={this.state.playingSampleTwo}

@@ -8,9 +8,6 @@ import DipsetDrum from './audio/audio'
 class DrumTrack extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      playingDrums: false
-    }
     this.didMount = false
   }
 
@@ -22,11 +19,9 @@ class DrumTrack extends Component {
     let song
     switch (this.props.currentSong) {
       case 'Dipset-Anthem':
-        this.setState({ playingDrums: false })
         song = DipsetDrum.two
         break
       case 'Drake-0-100':
-        this.setState({ playingDrums: false })
         song = DrakeDrum.one
         break
       default:
