@@ -21,9 +21,11 @@ class TrackSamples extends Component {
     window.addEventListener('keypress', this.handleAKey, false)
     switch (this.props.currentSong) {
       case 'Dipset-Anthem':
+        this.audio.stop()
         this.BPM = 84
         break
       case 'Drake-0-100':
+        this.audio.stop()
         this.BPM = 90
         break
       default:
