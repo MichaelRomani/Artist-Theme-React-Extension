@@ -22,11 +22,11 @@ class DrumTrack extends Component {
     let song
     switch (this.props.currentSong) {
       case 'Dipset-Anthem':
-        this.audioDrums.stop()
+        this.setState({ playingDrums: false })
         song = DipsetDrum.two
         break
       case 'Drake-0-100':
-        this.audioDrums.stop()
+        this.setState({ playingDrums: false })
         song = DrakeDrum.one
         break
       default:
