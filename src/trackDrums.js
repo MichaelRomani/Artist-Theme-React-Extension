@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import './App.css'
 import ReactHowler from 'react-howler'
-import AudioDrakeDrum from './audio/audioDrakeDrum.js'
+import { connect } from 'react-redux'
+import DrakeDrum from './audio/audioDrakeDrum.js'
+import DipsetDrum from './audio/audio'
 
-class TrackSamples extends Component {
+class DrumTrack extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -17,16 +19,37 @@ class TrackSamples extends Component {
   }
 
   render() {
+    let song
+    switch (this.props.currentSong) {
+      case 'Dipset-Anthem':
+        console.log('here')
+        song = DipsetDrum.two
+        break
+      case 'Drake-0-100':
+        console.log('here2')
+        song = DrakeDrum.one
+        break
+      default:
+        song = 'nothing'
+        break
+    }
     if (!this.props.beat && this.didMount) this.audioDrums.stop()
     return (
       <div>
         <ReactHowler
           playing={this.props.beat}
           ref={ref => (this.audioDrums = ref)}
-          src={AudioDrakeDrum.one}
+          src={song}
         />
       </div>
     )
   }
 }
-export default TrackSamples
+
+const mapState = state => {
+  return {
+    currentSong: state.currentSong
+  }
+}
+
+export default connect(mapState)(DrumTrack)

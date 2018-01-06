@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import './App.css'
-import TrackDrakeSamples from './trackDrakeSamples'
+import TrackDrakeSamples from './trackSamples'
 import TrackDrums from './trackDrums'
-import { changeLogo, changePlayButtonImg } from './store/store'
+import { changeLogo, changePlayButtonImg, changeSong } from './store/store'
 import logoImags from './logoImgs'
 
 class Tester extends Component {
@@ -22,6 +22,7 @@ class Tester extends Component {
       beatPlaying: false,
       showVideo: false
     }
+    this.handleSongSelect = this.handleSongSelect.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
     this.handleKeyUp = this.handleKeyUp.bind(this)
     this.toggleBeatPlay = this.toggleBeatPlay.bind(this)
@@ -65,6 +66,11 @@ class Tester extends Component {
     this.setState({ beatPlaying: !this.state.beatPlaying })
   }
 
+  handleSongSelect(evt) {
+    console.log('tester', evt.target.value)
+    this.props.changeSong(evt.target.value)
+  }
+
   render() {
     return (
       <div className="a">
@@ -88,10 +94,10 @@ class Tester extends Component {
               onClick={this.toggleBeatPlay}
             />
 
-            <select className="video-button">
+            <select onChange={this.handleSongSelect} className="video-button">
               <option>Choose Song</option>
-              <option value="anthem">Anthem - Dipset</option>
-              <option value="zero">0 to 100 - Drake</option>
+              <option value="Dipset-Anthem">Dipset: Anthem</option>
+              <option value="Drake-0-100">Drake: 0 - 100</option>
             </select>
             <button className="video-button" onClick={this.showVideoToggle}>
               {this.state.showVideo ? 'Close Tutorial' : 'Tutorial'}
@@ -117,7 +123,8 @@ const mapState = state => {
 const mapDispatch = dispatch => {
   return {
     changeLogo: logo => dispatch(changeLogo(logo)),
-    changePlayButtonImg: img => dispatch(changePlayButtonImg(img))
+    changePlayButtonImg: img => dispatch(changePlayButtonImg(img)),
+    changeSong: song => dispatch(changeSong(song))
   }
 }
 

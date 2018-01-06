@@ -1,8 +1,10 @@
 /*global chrome*/
 import React, { Component } from 'react'
 import './App.css'
+import { connect } from 'react-redux'
 import ReactHowler from 'react-howler'
-import Audio from './audio/audio.js'
+import DipSetSamples from './audio/audio.js'
+import DrakeSamples from './audio/audioDrakeSample'
 
 class TrackSamples extends Component {
   constructor(props) {
@@ -11,11 +13,23 @@ class TrackSamples extends Component {
       playingSample: false,
       playingSampleTwo: false
     }
+    this.BMP = 0
     this.handleAKey = this.handleAKey.bind(this)
   }
 
   componentDidMount() {
     window.addEventListener('keypress', this.handleAKey, false)
+    switch (this.props.currentSong) {
+      case 'Dipset-Anthem':
+        this.BPM = 84
+        break
+      case 'Drake-0-100':
+        this.BPM = 90
+        break
+      default:
+        this.BPM = 0
+        break
+    }
   }
 
   componentWillUnmount() {
@@ -34,7 +48,7 @@ class TrackSamples extends Component {
       }
     }
     if (event.key === 's') {
-      let audioStartPoint = 60 / 84 * 1
+      let audioStartPoint = 60 / this.BPM * 1
       if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
       else {
         this.setState({
@@ -44,7 +58,7 @@ class TrackSamples extends Component {
       }
     }
     if (event.key === 'd') {
-      let audioStartPoint = 60 / 84 * 2
+      let audioStartPoint = 60 / this.BPM * 2
       if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
       else {
         this.setState({
@@ -54,7 +68,7 @@ class TrackSamples extends Component {
       }
     }
     if (event.key === 'f') {
-      let audioStartPoint = 60 / 84 * 3
+      let audioStartPoint = 60 / this.BPM * 3
       if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
       else {
         this.setState({
@@ -64,7 +78,7 @@ class TrackSamples extends Component {
       }
     }
     if (event.key === 'g') {
-      let audioStartPoint = 60 / 84 * 4
+      let audioStartPoint = 60 / this.BPM * 4
       if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
       else {
         this.setState({
@@ -74,7 +88,7 @@ class TrackSamples extends Component {
       }
     }
     if (event.key === 'h') {
-      let audioStartPoint = 60 / 84 * 5
+      let audioStartPoint = 60 / this.BPM * 5
       if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
       else {
         this.setState({
@@ -84,7 +98,7 @@ class TrackSamples extends Component {
       }
     }
     if (event.key === 'j') {
-      let audioStartPoint = 60 / 84 * 6
+      let audioStartPoint = 60 / this.BPM * 6
       if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
       else {
         this.setState({
@@ -95,7 +109,7 @@ class TrackSamples extends Component {
     }
 
     if (event.key === 'k') {
-      let audioStartPoint = 60 / 84 * 7
+      let audioStartPoint = 60 / this.BPM * 7
       if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
       else {
         this.setState({
@@ -113,20 +127,27 @@ class TrackSamples extends Component {
         })
       }
     }
-    // if (event.key === 'l') {
-    //   this.setState({
-    //     playingSampleTwo: true
-    //   })
-    // }
   }
 
   render() {
+    let songSample
+    switch (this.props.currentSong) {
+      case 'Dipset-Anthem':
+        songSample = DipSetSamples.one
+        break
+      case 'Drake-0-100':
+        songSample = DrakeSamples.one
+        break
+      default:
+        songSample = 'nothing'
+        break
+    }
     return (
       <div>
         <ReactHowler
           playing={this.state.playingSample}
           ref={ref => (this.audio = ref)}
-          src={Audio.one}
+          src={songSample}
         />
         {/* <ReactHowler
           playing={this.state.playingSampleTwo}
@@ -137,4 +158,10 @@ class TrackSamples extends Component {
     )
   }
 }
-export default TrackSamples
+
+const mapState = state => {
+  return {
+    currentSong: state.currentSong
+  }
+}
+export default connect(mapState)(TrackSamples)
