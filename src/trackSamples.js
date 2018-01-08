@@ -20,21 +20,6 @@ class TrackSamples extends Component {
 
   componentDidMount() {
     window.addEventListener('keypress', this.handleAKey, false)
-    switch (this.props.currentSong) {
-      case 'Dipset-Anthem':
-        this.audio.stop()
-        this.BPM = 84
-        this.volume = 1
-        break
-      case 'Drake-0-100':
-        this.audio.stop()
-        this.BPM = 90
-        this.volume = 0.39
-        break
-      default:
-        this.BPM = 0
-        break
-    }
   }
 
   componentWillUnmount() {
@@ -135,6 +120,19 @@ class TrackSamples extends Component {
   }
 
   render() {
+    switch (this.props.currentSong) {
+      case 'Dipset-Anthem':
+        this.BPM = 84
+        this.volume = 1
+        break
+      case 'Drake-0-100':
+        this.BPM = 90
+        this.volume = 0.39
+        break
+      default:
+        this.BPM = 0
+        break
+    }
     let songSample
     switch (this.props.currentSong) {
       case 'Dipset-Anthem':
