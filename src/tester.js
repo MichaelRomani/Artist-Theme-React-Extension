@@ -67,7 +67,7 @@ class Tester extends Component {
   }
 
   handleSongSelect(evt) {
-    console.log('tester', evt.target.value)
+    this.setState({ beatPlaying: false })
     this.props.changeSong(evt.target.value)
   }
 
