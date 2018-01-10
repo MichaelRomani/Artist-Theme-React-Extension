@@ -90,10 +90,9 @@ class Tester extends Component {
             <img
               className="play-button"
               alt="play button"
-              src={this.props.playButton}
+              src={ this.state.beatPlaying ? this.props.playButton : this.props.playButton}
               onClick={this.toggleBeatPlay}
             />
-
             <select onChange={this.handleSongSelect} className="video-button">
               <option>Choose Song</option>
               <option value="Dipset-Anthem">Dipset: Anthem</option>
