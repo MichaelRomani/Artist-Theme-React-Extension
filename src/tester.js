@@ -1,14 +1,15 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import './App.css'
-import TrackDrakeSamples from './trackSamples'
-import TrackDrums from './trackDrums'
-import { changeLogo, changePlayButtonImg, changeSong } from './store/store'
-import logoImags from './logoImgs'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import './App.css';
+import TrackDrakeSamples from './trackSamples';
+import TrackDrums from './trackDrums';
+import { changeLogo, changePlayButtonImg, changeSong } from './store/store';
+import logoImags from './logoImgs';
+import buttonImgs from './playButtonImages';
 
 class Tester extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       aKey: 'box pad-1',
       sKey: 'box pad-2',
@@ -21,54 +22,54 @@ class Tester extends Component {
       lKey: 'box pad-9',
       beatPlaying: false,
       showVideo: false
-    }
-    this.handleSongSelect = this.handleSongSelect.bind(this)
-    this.handleKeyPress = this.handleKeyPress.bind(this)
-    this.handleKeyUp = this.handleKeyUp.bind(this)
-    this.toggleBeatPlay = this.toggleBeatPlay.bind(this)
-    this.showVideoToggle = this.showVideoToggle.bind(this)
+    };
+    this.handleSongSelect = this.handleSongSelect.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.handleKeyUp = this.handleKeyUp.bind(this);
+    this.toggleBeatPlay = this.toggleBeatPlay.bind(this);
+    this.showVideoToggle = this.showVideoToggle.bind(this);
   }
   componentDidMount() {
-    window.addEventListener('keydown', this.handleKeyPress, false)
-    window.addEventListener('keyup', this.handleKeyUp, false)
+    window.addEventListener('keydown', this.handleKeyPress, false);
+    window.addEventListener('keyup', this.handleKeyUp, false);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleKeyPress, false)
-    window.removeEventListener('keyup', this.handleKeyUp, false)
+    window.removeEventListener('keydown', this.handleKeyPress, false);
+    window.removeEventListener('keyup', this.handleKeyUp, false);
   }
 
   handleKeyPress(event) {
-    let tempArr = eval(`this.state.${event.key}Key`)
+    let tempArr = eval(`this.state.${event.key}Key`);
     if (tempArr.length <= 9) {
-      tempArr = tempArr.concat(' active')
-      eval(`this.setState({ ${event.key}Key: tempArr })`)
+      tempArr = tempArr.concat(' active');
+      eval(`this.setState({ ${event.key}Key: tempArr })`);
     }
   }
 
   handleKeyUp(event) {
-    let tempArr = eval(`this.state.${event.key}Key`)
-    tempArr = tempArr.slice(0, 9)
-    eval(`this.setState({ ${event.key}Key: tempArr })`)
+    let tempArr = eval(`this.state.${event.key}Key`);
+    tempArr = tempArr.slice(0, 9);
+    eval(`this.setState({ ${event.key}Key: tempArr })`);
   }
 
   showVideoToggle() {
-    this.setState({ beatPlaying: false })
-    this.setState({ showVideo: !this.state.showVideo })
+    this.setState({ beatPlaying: false });
+    this.setState({ showVideo: !this.state.showVideo });
     this.state.showVideo
       ? this.props.changeLogo(logoImags.google)
-      : this.props.changeLogo(logoImags.howToVid)
+      : this.props.changeLogo(logoImags.howToVid);
   }
 
   toggleBeatPlay() {
-    this.setState({ showVideo: false })
-    this.props.changeLogo(logoImags.google)
-    this.setState({ beatPlaying: !this.state.beatPlaying })
+    this.setState({ showVideo: false });
+    this.props.changeLogo(logoImags.google);
+    this.setState({ beatPlaying: !this.state.beatPlaying });
   }
 
   handleSongSelect(evt) {
-    this.setState({ beatPlaying: false })
-    this.props.changeSong(evt.target.value)
+    this.setState({ beatPlaying: false });
+    this.props.changeSong(evt.target.value);
   }
 
   render() {
@@ -90,7 +91,7 @@ class Tester extends Component {
             <img
               className="play-button"
               alt="play button"
-              src={ this.state.beatPlaying ? this.props.playButton : this.props.playButton}
+              src={this.state.beatPlaying ? buttonImgs.stop : buttonImgs.play}
               onClick={this.toggleBeatPlay}
             />
             <select onChange={this.handleSongSelect} className="video-button">
@@ -108,7 +109,7 @@ class Tester extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
@@ -116,15 +117,15 @@ const mapState = state => {
   return {
     logo: state.googleLogo,
     playButton: state.playButton
-  }
-}
+  };
+};
 
 const mapDispatch = dispatch => {
   return {
     changeLogo: logo => dispatch(changeLogo(logo)),
     changePlayButtonImg: img => dispatch(changePlayButtonImg(img)),
     changeSong: song => dispatch(changeSong(song))
-  }
-}
+  };
+};
 
-export default connect(mapState, mapDispatch)(Tester)
+export default connect(mapState, mapDispatch)(Tester);
