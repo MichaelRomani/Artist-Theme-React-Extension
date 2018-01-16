@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import './App.css';
 import TrackDrakeSamples from './trackSamples';
 import TrackDrums from './trackDrums';
-import { changeLogo, changePlayButtonImg, changeSong } from './store/store';
+import { changeLogo, changeSong } from './store/store';
 import logoImags from './logoImgs';
-import buttonImgs from './playButtonImages';
+import buttonImgs from './images/playStopButtons';
 
 class Tester extends Component {
   constructor(props) {
@@ -115,15 +115,13 @@ class Tester extends Component {
 
 const mapState = state => {
   return {
-    logo: state.googleLogo,
-    playButton: state.playButton
+    logo: state.googleLogo
   };
 };
 
 const mapDispatch = dispatch => {
   return {
     changeLogo: logo => dispatch(changeLogo(logo)),
-    changePlayButtonImg: img => dispatch(changePlayButtonImg(img)),
     changeSong: song => dispatch(changeSong(song))
   };
 };
