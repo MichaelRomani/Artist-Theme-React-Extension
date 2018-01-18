@@ -69,6 +69,7 @@ class Tester extends Component {
   handleSongSelect(evt) {
     this.setState({ beatPlaying: false });
     this.props.changeSong(evt.target.value);
+    this.props.togglePlay(false)
   }
 
   render() {
