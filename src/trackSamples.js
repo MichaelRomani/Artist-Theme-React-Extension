@@ -12,9 +12,12 @@ class TrackSamples extends Component {
       playingSample: false,
       playingSampleTwo: false
     }
+    this.timer = 0
+    this.addTime = this.addTime.bind(this)
     this.BMP = 0
     this.volume = 0
     this.handleAKey = this.handleAKey.bind(this)
+    this.callTimeChecker = this.callTimeChecker.bind(this)
   }
 
   componentDidMount() {
@@ -25,8 +28,29 @@ class TrackSamples extends Component {
     window.removeEventListener('keypress', this.handleAKey, false)
   }
 
+  addTime() {
+    console.log(this.timer)
+    setInterval(()=> {
+      this.timer += (50 / 1000)
+      // .05
+      console.log(this.timer)
+    }, 50)
+  }
+
+  callTimeChecker() {
+    let timeCheck = 60 / this.BPM
+    setTimeout(() => {
+      if (this.timer >= timeCheck)
+      this.audio.stop()
+    }, timeCheck * 1000)
+    // 741
+  }
+
   handleAKey(event) {
     if (event.key === 'a') {
+      this.timer = 0
+      this.addTime()
+      this.callTimeChecker()
       if (this.state.playingSample === true) {
         this.audio.stop()
         this.audio.play()
