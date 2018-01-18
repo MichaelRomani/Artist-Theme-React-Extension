@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
-import TrackDrakeSamples from './trackSamples';
+import TrackSamples from './trackSamples';
 import TrackDrums from './trackDrums';
 import { changeLogo, changeSong, togglePlay } from './store/store';
 import logoImags from './logoImgs';
@@ -104,7 +104,7 @@ class Tester extends Component {
             </button>
           </div>
           <div>
-            {this.state.beatPlaying ? <TrackDrakeSamples /> : <div />}
+            {this.props.beatPlaying ? <TrackSamples /> : <div />}
             <TrackDrums  />
           </div>
         </div>
