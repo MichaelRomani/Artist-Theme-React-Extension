@@ -5,15 +5,21 @@ import { connect } from 'react-redux'
 import DrakeDrum from './audio/audioDrakeDrum.js'
 import DipsetDrum from './audio/audio'
 import ChooseASongPrompt from './audio/chooseASongPrompt';
+import { togglePlay } from './store/store'
 
 class DrumTrack extends Component {
   constructor(props) {
     super(props)
     this.didMount = false
+    this.toggleBeatPlay = this.toggleBeatPlay.bind(this)
   }
 
   componentDidMount() {
     this.didMount = true
+  }
+
+  toggleBeatPlay() {
+    this.props.togglePlay(!this.props.beatPlaying)
   }
 
   render() {
@@ -36,9 +42,10 @@ class DrumTrack extends Component {
     return (
       <div>
         <ReactHowler
-          playing={this.props.beat}
+          playing={this.props.beatPlaying}
           ref={ref => (this.audioDrums = ref)}
           src={song}
+          onEnd={this.toggleBeatPlay}
         />
       </div>
     )
@@ -47,8 +54,15 @@ class DrumTrack extends Component {
 
 const mapState = state => {
   return {
-    currentSong: state.currentSong
+    currentSong: state.currentSong,
+    beatPlaying: state.beatPlaying
   }
 }
 
-export default connect(mapState)(DrumTrack)
+const mapDispatch = dispatch => {
+  return {
+    togglePlay: bool => dispatch(togglePlay(bool))
+  }
+}
+
+export default connect(mapState, mapDispatch)(DrumTrack)

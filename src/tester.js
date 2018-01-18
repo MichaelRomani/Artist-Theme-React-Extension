@@ -61,7 +61,6 @@ class Tester extends Component {
   }
 
   toggleBeatPlay() {
-    console.log('button hit')
     this.setState({ showVideo: false });
     this.props.changeLogo(logoImags.google);
     this.props.togglePlay(!this.props.beatPlaying)
@@ -73,7 +72,6 @@ class Tester extends Component {
   }
 
   render() {
-    console.log(this.props.beatPlaying, 'this beat')
     return (
       <div className="a">
         <div>
@@ -106,7 +104,7 @@ class Tester extends Component {
           </div>
           <div>
             {this.state.beatPlaying ? <TrackDrakeSamples /> : <div />}
-            <TrackDrums beat={this.props.beatPlaying} />
+            <TrackDrums  />
           </div>
         </div>
       </div>
