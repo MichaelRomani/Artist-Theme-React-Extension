@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import './App.css';
 import TrackDrakeSamples from './trackSamples';
 import TrackDrums from './trackDrums';
-import { changeLogo, changeSong } from './store/store';
+import { changeLogo, changeSong, togglePlay } from './store/store';
 import logoImags from './logoImgs';
 import buttonImgs from './images/playStopButtons';
 
@@ -20,7 +20,6 @@ class Tester extends Component {
       jKey: 'box pad-7',
       kKey: 'box pad-8',
       lKey: 'box pad-9',
-      beatPlaying: false,
       showVideo: false
     };
     this.handleSongSelect = this.handleSongSelect.bind(this);
@@ -62,9 +61,10 @@ class Tester extends Component {
   }
 
   toggleBeatPlay() {
+    console.log('button hit')
     this.setState({ showVideo: false });
     this.props.changeLogo(logoImags.google);
-    this.setState({ beatPlaying: !this.state.beatPlaying });
+    this.props.togglePlay(!this.props.beatPlaying)
   }
 
   handleSongSelect(evt) {
@@ -73,6 +73,7 @@ class Tester extends Component {
   }
 
   render() {
+    console.log(this.props.beatPlaying, 'this beat')
     return (
       <div className="a">
         <div>
@@ -91,11 +92,11 @@ class Tester extends Component {
             <img
               className="play-button"
               alt="play button"
-              src={this.state.beatPlaying ? buttonImgs.stop : buttonImgs.play}
+              src={this.props.beatPlaying ? buttonImgs.stop : buttonImgs.play}
               onClick={this.toggleBeatPlay}
             />
             <select onChange={this.handleSongSelect} className="video-button">
-              <option>Choose Song</option>
+              <option value=''>Choose Song</option>
               <option value="Dipset-Anthem">Dipset: Anthem</option>
               <option value="Drake-0-100">Drake: 0 - 100</option>
             </select>
@@ -105,7 +106,7 @@ class Tester extends Component {
           </div>
           <div>
             {this.state.beatPlaying ? <TrackDrakeSamples /> : <div />}
-            <TrackDrums beat={this.state.beatPlaying} />
+            <TrackDrums beat={this.props.beatPlaying} />
           </div>
         </div>
       </div>
@@ -115,14 +116,16 @@ class Tester extends Component {
 
 const mapState = state => {
   return {
-    logo: state.googleLogo
+    logo: state.googleLogo,
+    beatPlaying: state.beatPlaying
   };
 };
 
 const mapDispatch = dispatch => {
   return {
     changeLogo: logo => dispatch(changeLogo(logo)),
-    changeSong: song => dispatch(changeSong(song))
+    changeSong: song => dispatch(changeSong(song)),
+    togglePlay: bool => dispatch(togglePlay(bool))
   };
 };
 
