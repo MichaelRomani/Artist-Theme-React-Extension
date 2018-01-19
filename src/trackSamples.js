@@ -65,7 +65,7 @@ class TrackSamples extends Component {
       }
     }
     if (event.key === 'd') {
-      let audioStartPoint = 60 / this.BPM * 1
+      let audioStartPoint = 60 / this.BPM * 2
       if (this.state.playingSample === true) {
         clearTimeout(this.state.timeoutCancel)
         let timeStop = (60 / this.BPM) * 1000
@@ -84,7 +84,7 @@ class TrackSamples extends Component {
       }
     }
     if (event.key === 'f') {
-      let audioStartPoint = 60 / this.BPM * 1
+      let audioStartPoint = 60 / this.BPM * 3
       if (this.state.playingSample === true) {
         clearTimeout(this.state.timeoutCancel)
         let timeStop = (60 / this.BPM) * 1000
@@ -103,7 +103,7 @@ class TrackSamples extends Component {
       }
     }
     if (event.key === 'g') {
-      let audioStartPoint = 60 / this.BPM * 1
+      let audioStartPoint = 60 / this.BPM * 4
       if (this.state.playingSample === true) {
         clearTimeout(this.state.timeoutCancel)
         let timeStop = (60 / this.BPM) * 1000
@@ -122,7 +122,7 @@ class TrackSamples extends Component {
       }
     }
     if (event.key === 'h') {
-      let audioStartPoint = 60 / this.BPM * 1
+      let audioStartPoint = 60 / this.BPM * 5
       if (this.state.playingSample === true) {
         clearTimeout(this.state.timeoutCancel)
         let timeStop = (60 / this.BPM) * 1000
@@ -141,7 +141,7 @@ class TrackSamples extends Component {
       }
     }
     if (event.key === 'j') {
-      let audioStartPoint = 60 / this.BPM * 1
+      let audioStartPoint = 60 / this.BPM * 6
       if (this.state.playingSample === true) {
         clearTimeout(this.state.timeoutCancel)
         let timeStop = (60 / this.BPM) * 1000
@@ -161,7 +161,7 @@ class TrackSamples extends Component {
     }
 
     if (event.key === 'k') {
-      let audioStartPoint = 60 / this.BPM * 1
+      let audioStartPoint = 60 / this.BPM * 7
       if (this.state.playingSample === true) {
         clearTimeout(this.state.timeoutCancel)
         let timeStop = (60 / this.BPM) * 1000
