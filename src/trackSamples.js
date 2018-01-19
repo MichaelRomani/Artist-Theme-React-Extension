@@ -10,9 +10,9 @@ class TrackSamples extends Component {
     super(props)
     this.state = {
       playingSample: false,
-      playingSampleTwo: false
+      playingSampleTwo: false,
+      timeoutCancel: 0
     }
-
     this.volume = 0
     this.handleAKey = this.handleAKey.bind(this)
   }
@@ -30,12 +30,19 @@ class TrackSamples extends Component {
   handleAKey(event) {
     if (event.key === 'a') {
       if (this.state.playingSample === true) {
+        clearTimeout(this.state.timeoutCancel)
+        let timeStop = (60 / this.BPM) * 1000
         this.audio.stop()
         this.audio.play()
+        let timeout = setTimeout(() => this.audio.stop(), timeStop )
+        this.setState({timeoutCancel: timeout})
       } else {
         this.setState({
           playingSample: true
         })
+        let timeStop = (60 / this.BPM) * 1000
+        let timeout = setTimeout(() => this.audio.stop(), timeStop )
+        this.setState({timeoutCancel: timeout})
       }
     }
     if (event.key === 's') {
