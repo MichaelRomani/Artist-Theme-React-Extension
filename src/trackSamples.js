@@ -47,12 +47,21 @@ class TrackSamples extends Component {
     }
     if (event.key === 's') {
       let audioStartPoint = 60 / this.BPM * 1
-      if (this.state.playingSample === true) this.audio.seek(audioStartPoint)
+      if (this.state.playingSample === true) {
+        clearTimeout(this.state.timeoutCancel)
+        let timeStop = (60 / this.BPM) * 1000
+        this.audio.seek(audioStartPoint)
+        let timeout = setTimeout(() => this.audio.stop(), timeStop )
+        this.setState({timeoutCancel: timeout})
+      }
       else {
         this.setState({
           playingSample: true
         })
         this.audio.seek(audioStartPoint)
+        let timeStop = (60 / this.BPM) * 1000
+        let timeout = setTimeout(() => this.audio.stop(), timeStop )
+        this.setState({timeoutCancel: timeout})
       }
     }
     if (event.key === 'd') {
