@@ -16,6 +16,7 @@ class TrackSamples extends Component {
     this.volume = 0
     this.handleAKey = this.handleAKey.bind(this)
     this.playSound = this.playSound.bind(this)
+    this.audioStartPoint = this.audioStartPoint.bind(this)
   }
 
   componentDidMount() {
@@ -34,16 +35,15 @@ class TrackSamples extends Component {
     this.setState({timeoutCancel: timeout})
   }
 
+  startSound(audioStartPoint) {
+
+  }
+
 
   handleAKey(event) {
     if (event.key === 'a') {
       if (this.state.playingSample === true) {
-        clearTimeout(this.state.timeoutCancel)
-        let timeStop = (60 / this.BPM) * 1000
-        this.audio.stop()
-        this.audio.play()
-        let timeout = setTimeout(() => this.audio.stop(), timeStop )
-        this.setState({timeoutCancel: timeout})
+      this.playSound(0)
       } else {
         this.setState({
           playingSample: true
