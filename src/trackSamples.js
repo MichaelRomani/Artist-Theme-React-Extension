@@ -16,7 +16,7 @@ class TrackSamples extends Component {
     this.volume = 0
     this.handleAKey = this.handleAKey.bind(this)
     this.playSound = this.playSound.bind(this)
-    this.audioStartPoint = this.audioStartPoint.bind(this)
+    this.startSound = this.startSound.bind(this)
   }
 
   componentDidMount() {
@@ -36,7 +36,10 @@ class TrackSamples extends Component {
   }
 
   startSound(audioStartPoint) {
-
+    this.audio.seek(audioStartPoint)
+        let timeStop = (60 / this.BPM) * 1000
+        let timeout = setTimeout(() => this.audio.stop(), timeStop )
+        this.setState({timeoutCancel: timeout})
   }
 
 
@@ -48,9 +51,7 @@ class TrackSamples extends Component {
         this.setState({
           playingSample: true
         })
-        let timeStop = (60 / this.BPM) * 1000
-        let timeout = setTimeout(() => this.audio.stop(), timeStop )
-        this.setState({timeoutCancel: timeout})
+        this.startSound(0)
       }
     }
     if (event.key === 's') {
@@ -62,10 +63,7 @@ class TrackSamples extends Component {
         this.setState({
           playingSample: true
         })
-        this.audio.seek(audioStartPoint)
-        let timeStop = (60 / this.BPM) * 1000
-        let timeout = setTimeout(() => this.audio.stop(), timeStop )
-        this.setState({timeoutCancel: timeout})
+        this.startSound(audioStartPoint)
       }
     }
     if (event.key === 'd') {
@@ -77,10 +75,7 @@ class TrackSamples extends Component {
         this.setState({
           playingSample: true
         })
-        this.audio.seek(audioStartPoint)
-        let timeStop = (60 / this.BPM) * 1000
-        let timeout = setTimeout(() => this.audio.stop(), timeStop )
-        this.setState({timeoutCancel: timeout})
+        this.startSound(audioStartPoint)
       }
     }
     if (event.key === 'f') {
@@ -92,10 +87,7 @@ class TrackSamples extends Component {
         this.setState({
           playingSample: true
         })
-        this.audio.seek(audioStartPoint)
-        let timeStop = (60 / this.BPM) * 1000
-        let timeout = setTimeout(() => this.audio.stop(), timeStop )
-        this.setState({timeoutCancel: timeout})
+        this.startSound(audioStartPoint)
       }
     }
     if (event.key === 'g') {
@@ -107,10 +99,7 @@ class TrackSamples extends Component {
         this.setState({
           playingSample: true
         })
-        this.audio.seek(audioStartPoint)
-        let timeStop = (60 / this.BPM) * 1000
-        let timeout = setTimeout(() => this.audio.stop(), timeStop )
-        this.setState({timeoutCancel: timeout})
+        this.startSound(audioStartPoint)
       }
     }
     if (event.key === 'h') {
@@ -122,10 +111,7 @@ class TrackSamples extends Component {
         this.setState({
           playingSample: true
         })
-        this.audio.seek(audioStartPoint)
-        let timeStop = (60 / this.BPM) * 1000
-        let timeout = setTimeout(() => this.audio.stop(), timeStop )
-        this.setState({timeoutCancel: timeout})
+        this.startSound(audioStartPoint)
       }
     }
     if (event.key === 'j') {
@@ -137,10 +123,7 @@ class TrackSamples extends Component {
         this.setState({
           playingSample: true
         })
-        this.audio.seek(audioStartPoint)
-        let timeStop = (60 / this.BPM) * 1000
-        let timeout = setTimeout(() => this.audio.stop(), timeStop )
-        this.setState({timeoutCancel: timeout})
+        this.startSound(audioStartPoint)
       }
     }
 
@@ -153,10 +136,7 @@ class TrackSamples extends Component {
         this.setState({
           playingSample: true
         })
-        this.audio.seek(audioStartPoint)
-        let timeStop = (60 / this.BPM) * 1000
-        let timeout = setTimeout(() => this.audio.stop(), timeStop )
-        this.setState({timeoutCancel: timeout})
+        this.startSound(audioStartPoint)
       }
     }
 
