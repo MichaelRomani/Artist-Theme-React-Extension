@@ -45,14 +45,10 @@ class TrackSamples extends Component {
 
   handleAKey(event) {
     if (event.key === 'a') {
-      if (this.state.playingSample === true) {
-      this.playSound(0)
-      } else {
-        this.setState({
-          playingSample: true
-        })
-        this.startSound(0)
-      }
+      this.state.playingSample === true
+      ? this.playSound(0)
+      : {this.setState({ playingSample: true})
+        this.startSound(0)}
     }
     if (event.key === 's') {
       let audioStartPoint = 60 / this.BPM * 1
