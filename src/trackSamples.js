@@ -184,11 +184,6 @@ class TrackSamples extends Component {
           src={songSample}
           volume={this.volume}
         />
-        {/* <ReactHowler
-          playing={this.state.playingSampleTwo}
-          ref={ref => (this.audioTwo = ref)}
-          src={Audio.two}
-        /> */}
       </div>
     )
   }
