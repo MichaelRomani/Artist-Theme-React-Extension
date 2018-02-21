@@ -1,21 +1,15 @@
 import React, { Component } from 'react'
-import './App.css'
+import  './App.css'
 import { Provider } from 'react-redux'
 import store from './store/store'
 import GLogo from './gLogo'
 
-class App extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
+const App = props => {
     return (
       <Provider store={store}>
         <GLogo />
       </Provider>
     )
-  }
 }
 
 export default App

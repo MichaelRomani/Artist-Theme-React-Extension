@@ -3,22 +3,19 @@ import React from 'react'
 const logoImg = {
   google: (
     <div>
-      <img
-        alt="Google"
-        height="92"
-        id="hplogo"
-        src="/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
-        srcset="/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png 1x, /images/branding/googlelogo/2x/googlelogo_color_272x92dp.png 2x"
-        style={{ paddingTop: '109px' }}
-        width="272"
-        onload="window.lol&amp;&amp;lol()"
-      />
-    </div>
+    <img
+      alt="Google"
+      id="g-logo"
+      style={{ height: 110, width: 110, marginTop: 70 }}
+      src="https://ih1.redbubble.net/image.397523821.3440/flat,800x800,075,f.u2.jpg"
+    />
+  </div>
   ),
   howToVid: (
     <div>
       <iframe
         title="video"
+        alt='tutorial video'
         width="560"
         height="200"
         src="https://www.youtube.com/embed/3hOZaTGnHU4?rel=0&autoplay=1&showinfo=0"
