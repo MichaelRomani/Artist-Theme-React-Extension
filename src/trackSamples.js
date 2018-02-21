@@ -22,6 +22,10 @@ class TrackSamples extends Component {
     window.addEventListener('keypress', this.handleAKey, false)
   }
 
+  componentDidUpdate(prevProps, prevState){
+    if (prevProps.currentSong !== this.props.currentSong) this.audio.stop()
+  }
+
   componentWillUnmount() {
     window.removeEventListener('keypress', this.handleAKey, false);
   }
