@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
-import './App.css'
 import { connect } from 'react-redux'
 import ReactHowler from 'react-howler'
 import DipSetSamples from './audio/audio.js'
 import DrakeSamples from './audio/audioDrakeSample'
+import './App.css'
 
 class TrackSamples extends Component {
   constructor(props) {
     super(props)
     this.state = {
       playingSample: false,
-      playingSampleTwo: false,
       timeoutCancel: 0
     }
     this.volume = 0
@@ -23,8 +22,12 @@ class TrackSamples extends Component {
     window.addEventListener('keypress', this.handleAKey, false)
   }
 
+  componentDidUpdate(prevProps, prevState){
+    if (prevProps.currentSong !== this.props.currentSong) this.audio.stop()
+  }
+
   componentWillUnmount() {
-    window.removeEventListener('keypress', this.handleAKey, false)
+    window.removeEventListener('keypress', this.handleAKey, false);
   }
 
   playSound(audioStartPoint){
