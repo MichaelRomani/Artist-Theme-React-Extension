@@ -20,7 +20,6 @@ class Tester extends Component {
       jKey: 'box pad-7',
       kKey: 'box pad-8',
       lKey: 'box pad-9',
-      sCKey: 'box pad-s',
       showVideo: false
     };
     this.handleSongSelect = this.handleSongSelect.bind(this);
@@ -54,8 +53,9 @@ class Tester extends Component {
   }
 
   showVideoToggle() {
-    this.setState({ beatPlaying: false });
     this.setState({ showVideo: !this.state.showVideo });
+    this.props.togglePlay(false)
+
     this.state.showVideo
       ? this.props.changeLogo(logoImags.google)
       : this.props.changeLogo(logoImags.howToVid);
@@ -68,7 +68,6 @@ class Tester extends Component {
   }
 
   handleSongSelect(evt) {
-    this.setState({ beatPlaying: false });
     this.props.changeSong(evt.target.value);
     this.props.togglePlay(false)
   }
@@ -87,7 +86,6 @@ class Tester extends Component {
             <div className={this.state.jKey}>J</div>
             <div className={this.state.kKey}>K</div>
             <div className={this.state.lKey}>L</div>
-            <div className={this.state.sCKey}>;</div>
           </div>
           <div id="button-holder">
             <img
@@ -96,17 +94,17 @@ class Tester extends Component {
               src={this.props.beatPlaying ? buttonImgs.stop : buttonImgs.play}
               onClick={this.toggleBeatPlay}
             />
-            <select onChange={this.handleSongSelect} className="video-button">
+            <select onChange={this.handleSongSelect} className="menu-button">
               <option value=''>Choose Song</option>
               <option value="Dipset-Anthem">Dipset: Anthem</option>
               <option value="Drake-0-100">Drake: 0 - 100</option>
             </select>
-            <button className="video-button" onClick={this.showVideoToggle}>
+            <button className="menu-button" onClick={this.showVideoToggle}>
               {this.state.showVideo ? 'Close Tutorial' : 'Tutorial'}
             </button>
           </div>
           <div>
-            <TrackSamples samplesBool={this.props.beatPlaying}/>
+            <TrackSamples />
             <TrackDrums  />
           </div>
         </div>
