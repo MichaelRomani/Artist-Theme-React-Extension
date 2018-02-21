@@ -10,7 +10,6 @@ class TrackSamples extends Component {
     super(props)
     this.state = {
       playingSample: false,
-      playingSampleTwo: false,
       timeoutCancel: 0
     }
     this.volume = 0
@@ -24,7 +23,9 @@ class TrackSamples extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('keypress', this.handleAKey, false)
+    window.removeEventListener('keypress', this.handleAKey, false);
+    if (this.props.samplesBool) this.setState({playingSample: true});
+    this.audio.stop();
   }
 
   playSound(audioStartPoint){
@@ -146,6 +147,17 @@ class TrackSamples extends Component {
         this.setState({
           playingSample: false
         })
+      }
+    }
+    if (event.key === ';') {
+      if (this.state.playingSample) {
+        this.audio.stop()
+        this.setState({
+          playingSample: false
+        })
+      }
+      else {
+        this.setState({playingSample: false })
       }
     }
   }

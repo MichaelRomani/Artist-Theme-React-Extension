@@ -61,7 +61,8 @@ body {
 }
 
 .pad-2,
-.pad-6 {
+.pad-6,
+.pad-s {
   background-color: #d50f25;
 }
 

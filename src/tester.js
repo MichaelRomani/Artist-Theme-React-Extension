@@ -20,6 +20,7 @@ class Tester extends Component {
       jKey: 'box pad-7',
       kKey: 'box pad-8',
       lKey: 'box pad-9',
+      sCKey: 'box pad-s',
       showVideo: false
     };
     this.handleSongSelect = this.handleSongSelect.bind(this);
@@ -86,6 +87,7 @@ class Tester extends Component {
             <div className={this.state.jKey}>J</div>
             <div className={this.state.kKey}>K</div>
             <div className={this.state.lKey}>L</div>
+            <div className={this.state.sCKey}>;</div>
           </div>
           <div id="button-holder">
             <img
@@ -104,7 +106,7 @@ class Tester extends Component {
             </button>
           </div>
           <div>
-            {this.props.beatPlaying ? <TrackSamples /> : <div />}
+            <TrackSamples samplesBool={this.props.beatPlaying}/>
             <TrackDrums  />
           </div>
         </div>
