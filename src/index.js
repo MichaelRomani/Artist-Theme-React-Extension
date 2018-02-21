@@ -7,7 +7,7 @@ import $ from 'jquery'
 
 $('#hplogo').replaceWith(`
 <body >
-<div id=hplogo>
+<div id=hplogo  >
 </div>
 </body>
 `)
