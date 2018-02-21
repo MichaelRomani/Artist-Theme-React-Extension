@@ -5,6 +5,13 @@ import DrumTech from './drumTech'
 import App from './App'
 import $ from 'jquery'
 
+$('#hplogo').replaceWith(`
+<body >
+<div id=hplogo>
+</div>
+</body>
+`)
+
 $('#hplogo').after(`
 <body >
 <div style="width: 1000px;" id=main-div>
@@ -12,12 +19,6 @@ $('#hplogo').after(`
 </body>
 `)
 
-$('#hplogo').replaceWith(`
-<body >
-<div id=hplogo>
-</div>
-</body>
-`)
 
 $('.jsb').remove()
 

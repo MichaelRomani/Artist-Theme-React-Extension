@@ -18,6 +18,10 @@ body {
   align-items: center;
 }
 
+#hplogo {
+  height: 92;
+}
+
 #main-div {
   height: 100%;
   width: 100%;
