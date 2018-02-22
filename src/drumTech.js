@@ -5,9 +5,6 @@ import store from './store/store'
 import Tester from './tester'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   render() {
     return (
