@@ -1,25 +1,13 @@
-/**
- * ACTION TYPES
- */
+//Action Types
 const CURRENT_SONG = 'CURRENT_SONG'
 
-/**
- * INITIAL STATE
- */
+//Initial State
 const defaultSong = ''
 
-/**
- * ACTION CREATORS
- */
+//Action Creators
 export const changeSong = song => ({ type: CURRENT_SONG, song })
 
-/**
- * THUNK CREATORS
- */
-
-/**
- * REDUCER
- */
+//Reducer
 export default function(state = defaultSong, action) {
   let newState = state
   switch (action.type) {

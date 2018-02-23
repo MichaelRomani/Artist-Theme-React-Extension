@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import './App.css'
 import ReactHowler from 'react-howler'
 import { connect } from 'react-redux'
 import DrakeDrum from './audio/audioDrakeDrum.js'
 import DipsetDrum from './audio/audio'
-import ChooseASongPrompt from './audio/chooseASongPrompt';
+import ChooseASongPrompt from './audio/chooseASongPrompt'
 import { togglePlay } from './store/store'
 
 class DrumTrack extends Component {
@@ -40,14 +39,12 @@ class DrumTrack extends Component {
     }
     if (!this.props.beat && this.didMount) this.audioDrums.stop()
     return (
-      <div>
-        <ReactHowler
-          playing={this.props.beatPlaying}
-          ref={ref => (this.audioDrums = ref)}
-          src={song}
-          onEnd={this.toggleBeatPlay}
-        />
-      </div>
+      <ReactHowler
+        playing={this.props.beatPlaying}
+        ref={ref => (this.audioDrums = ref)}
+        src={song}
+        onEnd={this.toggleBeatPlay}
+      />
     )
   }
 }

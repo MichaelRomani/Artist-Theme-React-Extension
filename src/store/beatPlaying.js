@@ -1,25 +1,13 @@
-/**
- * ACTION TYPES
- */
+//Action Types
 const BEAT_PLAYING = 'BEAT_PLAYING'
 
-/**
- * INITIAL STATE
- */
+//Initial State
 const defaultBool = false
 
-/**
- * ACTION CREATORS
- */
+//Action Creators
 export const togglePlay = bool => ({ type: BEAT_PLAYING, bool })
 
-/**
- * THUNK CREATORS
- */
-
-/**
- * REDUCER
- */
+//Reducer
 export default function(state = defaultBool, action) {
   let newState = state
   switch (action.type) {

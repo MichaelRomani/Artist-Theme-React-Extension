@@ -1,13 +1,9 @@
 import React from 'react'
 
-/**
- * ACTION TYPES
- */
+//Action Types
 const GOOGLE_LOGO = 'GOOGLE_LOGO'
 
-/**
- * INITIAL STATE
- */
+//Initial State
 const defaultLogo = (
   <div>
     <img
@@ -18,14 +14,10 @@ const defaultLogo = (
   </div>
 )
 
-/**
- * ACTION CREATORS
- */
+//Action Creators
 export const changeLogo = logo => ({ type: GOOGLE_LOGO, logo })
-''
-/**
- * REDUCER
- */
+
+//Reducer
 export default function(state = defaultLogo, action) {
   let newState = Object.assign({}, state)
   switch (action.type) {

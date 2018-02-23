@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './App.css';
 import TrackSamples from './trackSamples';
 import TrackDrums from './trackDrums';
 import { changeLogo, changeSong, togglePlay } from './store/store';
@@ -39,23 +38,22 @@ class Tester extends Component {
   }
 
   handleKeyPress(event) {
-    let tempArr = eval(`this.state.${event.key}Key`);
-    if (tempArr.length <= 9) {
-      tempArr = tempArr.concat(' active');
-      eval(`this.setState({ ${event.key}Key: tempArr })`);
+    let cssClass = eval(`this.state.${event.key}Key`);
+    if (cssClass.length <= 9) {
+      cssClass = cssClass.concat(' active');
+      eval(`this.setState({ ${event.key}Key: cssClass })`);
     }
   }
 
   handleKeyUp(event) {
-    let tempArr = eval(`this.state.${event.key}Key`);
-    tempArr = tempArr.slice(0, 9);
-    eval(`this.setState({ ${event.key}Key: tempArr })`);
+    let cssClass = eval(`this.state.${event.key}Key`);
+    cssClass = cssClass.slice(0, 9);
+    eval(`this.setState({ ${event.key}Key: cssClass })`);
   }
 
   showVideoToggle() {
     this.setState({ showVideo: !this.state.showVideo });
     this.props.togglePlay(false)
-
     this.state.showVideo
       ? this.props.changeLogo(logoImags.google)
       : this.props.changeLogo(logoImags.howToVid);
@@ -85,7 +83,7 @@ class Tester extends Component {
             <div className={this.state.hKey}>H</div>
             <div className={this.state.jKey}>J</div>
             <div className={this.state.kKey}>K</div>
-            <div className={this.state.lKey}>L</div>
+            <div className={this.state.lKey}>L<br/>stop</div>
           </div>
           <div id="button-holder">
             <img
@@ -104,7 +102,7 @@ class Tester extends Component {
             </button>
           </div>
           <div>
-            <TrackSamples />
+            { this.props.currentSong && <TrackSamples /> }
             <TrackDrums  />
           </div>
         </div>
@@ -116,7 +114,8 @@ class Tester extends Component {
 const mapState = state => {
   return {
     logo: state.googleLogo,
-    beatPlaying: state.beatPlaying
+    beatPlaying: state.beatPlaying,
+    currentSong: state.currentSong
   };
 };
 
