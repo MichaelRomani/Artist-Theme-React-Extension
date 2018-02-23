@@ -23,20 +23,9 @@ class DrumTrack extends Component {
 
   render() {
     let song
-    switch (this.props.currentSong) {
-      case 'Dipset-Anthem':
-        song = DipsetDrum.two
-        break
-      case 'Drake-0-100':
-        song = DrakeDrum.one
-        break
-      case '':
-        song = ChooseASongPrompt.one
-        break
-      default:
-        song = ''
-        break
-    }
+    if (this.props.currentSong === 'Dipset-Anthem') song = DipsetDrum.two
+    else if (this.props.currentSong === 'Drake-0-100') song = DrakeDrum.one
+    else if (!this.props.currentSong) song = ChooseASongPrompt.one
     if (!this.props.beat && this.didMount) this.audioDrums.stop()
     return (
       <ReactHowler
