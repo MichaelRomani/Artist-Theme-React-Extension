@@ -37,15 +37,3 @@ ReactDOM.render(<App />, document.getElementById('root2'))
 //Element - seemingly occassional (holiday themed)
 let addedElBelowSearch = document.getElementById('prm-pt')
 if (addedElBelowSearch) addedElBelowSearch.remove()
-
-//List of Divs
-//#hplogo - top logo
-//$('.fbar').remove()
-// $('#hplogo').replaceWith(`
-//       <body >
-//       <div id=main-div>
-//       </div>
-//       </body>
-//     `)
-//.jsb - this is section w buttons
-//#viewport - this is main screen, can append to put something on bottom end of screen
