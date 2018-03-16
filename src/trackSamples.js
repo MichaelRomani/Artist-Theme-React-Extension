@@ -78,19 +78,15 @@ class TrackSamples extends Component {
   }
 
   render() {
+    let songSample;
     if (this.props.currentSong === 'Dipset-Anthem') {
       this.BPM = 84
       this.volume = 1
+      songSample = DipSetSamples.one
     }
     else if (this.props.currentSong === 'Drake-0-100') {
       this.BPM = 90
       this.volume = 0.39
-    }
-    let songSample;
-    if (this.props.currentSong === 'Dipset-Anthem') {
-      songSample = DipSetSamples.one
-    }
-    else if (this.props.currentSong === 'Drake-0-100') {
       songSample = DrakeSamples.one
     }
     return (
