@@ -6,7 +6,7 @@ import { changeLogo, changeSong, togglePlay } from './store/store';
 import logoImags from './logoImgs';
 import buttonImgs from './images/playStopButtons';
 
-class Tester extends Component {
+class DrumPads extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -127,4 +127,4 @@ const mapDispatch = dispatch => {
   };
 };
 
-export default connect(mapState, mapDispatch)(Tester);
+export default connect(mapState, mapDispatch)(DrumPads);

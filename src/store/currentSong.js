@@ -15,6 +15,6 @@ export default function(state = defaultSong, action) {
       newState = action.song
       return newState
     default:
-      return state
+      return newState
   }
 }
