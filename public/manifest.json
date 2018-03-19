@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Chrome Beats",
+  "name": "MP-CHROME 2000",
   "version": "0.1",
-  "description": "Chrome Beats",
+  "description": "MP-CHROME 2000",
   "content_scripts": [
     {
       "run_at": "document_end",

@@ -16,9 +16,9 @@ const logoImg = {
       <iframe
         title="video"
         alt='tutorial video'
-        width="560"
-        height="200"
-        src="https://www.youtube.com/embed/3hOZaTGnHU4?rel=0&autoplay=1&showinfo=0"
+        width="500"
+        height="300"
+        src="https://www.youtube.com/watch?v=1QzIQqOuHRQ&feature=youtu.be"
         frameborder="0"
         gesture="media"
         allow="encrypted-media"

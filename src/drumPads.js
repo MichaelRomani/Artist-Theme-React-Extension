@@ -5,6 +5,7 @@ import TrackDrums from './trackDrums';
 import { changeLogo, changeSong, togglePlay } from './store/store';
 import logoImags from './logoImgs';
 import buttonImgs from './images/playStopButtons';
+import $ from 'jquery'
 
 class DrumPads extends Component {
   constructor(props) {
@@ -57,6 +58,8 @@ class DrumPads extends Component {
     this.state.showVideo
       ? this.props.changeLogo(logoImags.google)
       : this.props.changeLogo(logoImags.howToVid);
+      $('.tsf-p').remove()
+
   }
 
   toggleBeatPlay() {

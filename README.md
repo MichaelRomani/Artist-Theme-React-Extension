@@ -1,9 +1,4 @@
-MP-Chrome 2000
+# MP-CHROME 2000:
+** This extension is intended to be used as a tool for aspiring DJs and Producers to build and practice their DJ'ing and beat making skills.  MP-CHROME 2000 reconfigures google.com into an interactive, sample based, drum machine, allowing individuals of any skill level to live play professional quality remixes. **
 
-Chrome Extension:
-
-8 Sample Pads controlled by user keyboard
-
-2 Sample Songs provided
--Dipset: Dipset Anthem
--Drake: 1 - 100
+The initial release comes with two songs, each coming with their own set of 8 different samples.  An in app 'Tutorial' video is provided that walks users through the use of the extension.
